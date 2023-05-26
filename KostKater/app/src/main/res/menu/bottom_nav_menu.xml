@@ -7,8 +7,8 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_meal_plan"
+        android:icon="@drawable/baseline_schedule_24"
+        android:title="@string/title_meal_plan" />
 
 </menu>

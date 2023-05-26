@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">KostKater</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_meal_plan">Meal Plan</string>
 </resources>
