@@ -33,11 +33,15 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val recommendations = listOf(
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
             Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
             Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
             Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
             Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
-            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
             Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
         )
 
