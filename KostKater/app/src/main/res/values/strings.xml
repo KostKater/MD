@@ -2,4 +2,10 @@
     <string name="app_name">KostKater</string>
     <string name="title_home">Home</string>
     <string name="title_meal_plan">Meal Plan</string>
+    <string name="logout">Logout</string>
+
+    <string name="banner_title">Mau makan apa hari ini?</string>
+    <string name="banner_subtitle">Yuk, atur preferensi dulu agar rekomendasi kamu lebih maksimal!</string>
+    <string name="button_preference">Atur Preferensi</string>
+    <string name="recommendation">Rekomendasi Menu</string>
 </resources>
