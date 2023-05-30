@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.bumptech.glide.Glide
+import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.detail)
 
         val name = intent.getStringExtra(EXTRA_NAME)
         val photoUrl = intent.getStringExtra(EXTRA_PHOTO_URL)

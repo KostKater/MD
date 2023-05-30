@@ -11,4 +11,8 @@
 
     <string name="back">Back</string>
 
+    <string name="detail">Detail</string>
+    <string name="nutrition">Nutrisi</string>
+    <string name="view_recipe">Lihat Resep</string>
+
 </resources>

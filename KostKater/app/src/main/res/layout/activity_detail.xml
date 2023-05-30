@@ -4,50 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.detail.DetailActivity">
+    tools:context=".ui.detail.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
 
         <ImageView
             android:id="@+id/iv_detail_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            tools:src="@drawable/sup_ayam_klaten" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_meal_plan_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/baseline_playlist_add_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_detail_photo"
+            android:layout_margin="16dp"
+            app:elevation="0dp"
+            app:tint="@android:color/white" />
 
         <TextView
             android:id="@+id/tv_detail_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="21dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="16dp"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/onyx"
+            app:layout_constraintEnd_toStartOf="@id/add_meal_plan_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_detail_photo"
-            tools:text="Name" />
+            tools:text="Menu" />
 
         <TextView
             android:id="@+id/tv_detail_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14sp"
+            android:textColor="@color/onyx"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toStartOf="@id/add_meal_plan_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_detail_name"
             tools:text="Description" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/tv_nutrition_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="16dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/onyx"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            android:text="@string/nutrition" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/resep_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/view_recipe"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:strokeColor="@color/reseda_green"
+            app:strokeWidth="1dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_nutrition_title"
+            android:layout_marginHorizontal="16dp"
+            app:layout_goneMarginTop="12dp"
+            android:paddingVertical="12dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
