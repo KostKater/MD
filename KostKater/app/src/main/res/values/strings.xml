@@ -8,4 +8,11 @@
     <string name="banner_subtitle">Yuk, atur preferensi dulu agar rekomendasi kamu lebih maksimal!</string>
     <string name="button_preference">Atur Preferensi</string>
     <string name="recommendation">Rekomendasi Menu</string>
+
+    <string name="back">Back</string>
+
+    <string name="detail">Detail</string>
+    <string name="nutrition">Nutrisi</string>
+    <string name="view_recipe">Lihat Resep</string>
+
 </resources>

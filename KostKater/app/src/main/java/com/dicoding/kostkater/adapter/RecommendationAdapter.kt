@@ -1,11 +1,13 @@
 package com.dicoding.kostkater.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.databinding.ItemRecommendationBinding
 import com.dicoding.kostkater.model.Recommendation
+import com.dicoding.kostkater.ui.detail.DetailActivity
 
 class RecommendationAdapter(private val listRecommendation: List<Recommendation>) : RecyclerView.Adapter<RecommendationAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
@@ -31,6 +33,14 @@ class RecommendationAdapter(private val listRecommendation: List<Recommendation>
                     Glide.with(binding.root.context)
                         .load(photoUrl)
                         .into(binding.ivItemPhoto)
+
+                    binding.root.setOnClickListener {
+                        val moveWithObjectIntent = Intent(it.context, DetailActivity::class.java)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_NAME, name)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_PHOTO_URL, photoUrl)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_DESCRIPTION, description)
+                        it.context.startActivity(moveWithObjectIntent)
+                    }
                 }
             }
     }
