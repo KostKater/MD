@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.FragmentHomeBinding
 import com.dicoding.kostkater.model.Recommendation
@@ -33,16 +31,19 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val recommendations = listOf(
-            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
             Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
-            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
-            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
-            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
-            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
-            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
-            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
-            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten"),
-            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang"),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten", "Sup ayam dengan kuah gurih, potongan ayam, sayuran segar, dan bawang goreng."),
+            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang", "Hidangan daging yang dimasak dengan rempah-rempah khas Indonesia, dengan rasa gurih dan pedas yang kaya serta tekstur daging yang lembut."),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten", "Sup ayam dengan kuah gurih, potongan ayam, sayuran segar, dan bawang goreng."),
+            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang", "Hidangan daging yang dimasak dengan rempah-rempah khas Indonesia, dengan rasa gurih dan pedas yang kaya serta tekstur daging yang lembut."),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten", "Sup ayam dengan kuah gurih, potongan ayam, sayuran segar, dan bawang goreng."),
+            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang", "Hidangan daging yang dimasak dengan rempah-rempah khas Indonesia, dengan rasa gurih dan pedas yang kaya serta tekstur daging yang lembut."),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten", "Sup ayam dengan kuah gurih, potongan ayam, sayuran segar, dan bawang goreng."),
+            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang", "Hidangan daging yang dimasak dengan rempah-rempah khas Indonesia, dengan rasa gurih dan pedas yang kaya serta tekstur daging yang lembut."),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten", "Sup ayam dengan kuah gurih, potongan ayam, sayuran segar, dan bawang goreng."),
+            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang", "Hidangan daging yang dimasak dengan rempah-rempah khas Indonesia, dengan rasa gurih dan pedas yang kaya serta tekstur daging yang lembut."),
+            Recommendation("https://i.pinimg.com/564x/6e/d5/99/6ed599196deefa2ef54d22c94ae2726a.jpg", "Sup Ayam Klaten", "Sup ayam dengan kuah gurih, potongan ayam, sayuran segar, dan bawang goreng."),
+            Recommendation("https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/5-popular-indonesian-foods-you-can-make-at-home/i2.jpg", "Rendang", "Hidangan daging yang dimasak dengan rempah-rempah khas Indonesia, dengan rasa gurih dan pedas yang kaya serta tekstur daging yang lembut."),
         )
 
         val adapter = RecommendationAdapter(recommendations)

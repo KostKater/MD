@@ -1,5 +1,6 @@
 package com.dicoding.kostkater.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ActivityMainBinding
+import com.dicoding.kostkater.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,7 +47,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
-//                mainViewModel.logout()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
                 true
             }
 
