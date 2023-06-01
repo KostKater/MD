@@ -64,12 +64,26 @@
             app:layout_constraintTop_toBottomOf="@id/tv_detail_name"
             tools:text="Description" />
 
+        <TextView
+            android:id="@+id/tv_detail_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/reseda_green"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toStartOf="@id/add_meal_plan_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
+            tools:text="Price" />
+
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="6dp"
             android:background="@color/gray"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_price"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp" />
@@ -89,145 +103,7 @@
             android:text="@string/nutrition" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv_nutrition2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/guideline_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_nutrition_title"
-            android:backgroundTint="@color/peach_yellow"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginVertical="10dp"
-            card_view:cardCornerRadius="5dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="14dp">
-
-                <TextView
-                    android:id="@+id/tv_nutrition_type2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/onyx"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tv_nutrition_value2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="Karbohidrat" />
-
-                <TextView
-                    android:id="@+id/tv_nutrition_value2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/onyx"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="20g" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_nutrition3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/guideline_vertical"
-            app:layout_constraintTop_toBottomOf="@id/cv_nutrition"
-            android:backgroundTint="@color/peach_yellow"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginVertical="10dp"
-            card_view:cardCornerRadius="5dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="14dp">
-
-                <TextView
-                    android:id="@+id/tv_nutrition_type3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/onyx"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tv_nutrition_value3"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="Protein" />
-
-                <TextView
-                    android:id="@+id/tv_nutrition_value3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/onyx"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="15g" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_nutrition4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/guideline_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_nutrition2"
-            android:backgroundTint="@color/peach_yellow"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginVertical="10dp"
-            card_view:cardCornerRadius="5dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="14dp">
-
-                <TextView
-                    android:id="@+id/tv_nutrition_type4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/onyx"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tv_nutrition_value4"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="Lemak" />
-
-                <TextView
-                    android:id="@+id/tv_nutrition_value4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/onyx"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="10g" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_nutrition"
+            android:id="@+id/cv_calorie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -246,20 +122,20 @@
                 android:layout_marginHorizontal="14dp">
 
                 <TextView
-                    android:id="@+id/tv_nutrition_type"
+                    android:id="@+id/tv_calorie"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/onyx"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tv_nutrition_value"
+                    app:layout_constraintEnd_toStartOf="@id/tv_calorie_value"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="Kalori" />
+                    android:text="@string/calorie" />
 
                 <TextView
-                    android:id="@+id/tv_nutrition_value"
+                    android:id="@+id/tv_calorie_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
@@ -267,7 +143,145 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="200kal" />
+                    tools:text="200kal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_carbo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/guideline_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_nutrition_title"
+            android:backgroundTint="@color/peach_yellow"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginVertical="10dp"
+            card_view:cardCornerRadius="5dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="14dp">
+
+                <TextView
+                    android:id="@+id/tv_carbo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/onyx"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_carbo_value"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/carbo" />
+
+                <TextView
+                    android:id="@+id/tv_carbo_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/onyx"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="20g" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_protein"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline_vertical"
+            app:layout_constraintTop_toBottomOf="@id/cv_calorie"
+            android:backgroundTint="@color/peach_yellow"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginVertical="10dp"
+            card_view:cardCornerRadius="5dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="14dp">
+
+                <TextView
+                    android:id="@+id/tv_protein"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/onyx"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_protein_value"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/protein" />
+
+                <TextView
+                    android:id="@+id/tv_protein_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/onyx"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="15g" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_fat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/guideline_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_carbo"
+            android:backgroundTint="@color/peach_yellow"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginVertical="10dp"
+            card_view:cardCornerRadius="5dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="14dp">
+
+                <TextView
+                    android:id="@+id/tv_fat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/onyx"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_fat_value"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/fat" />
+
+                <TextView
+                    android:id="@+id/tv_fat_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/onyx"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="10g" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -285,7 +299,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_nutrition4"
+            app:layout_constraintTop_toBottomOf="@id/cv_fat"
             android:layout_marginHorizontal="16dp"
             app:layout_goneMarginTop="12dp"
             android:paddingVertical="12dp"/>
