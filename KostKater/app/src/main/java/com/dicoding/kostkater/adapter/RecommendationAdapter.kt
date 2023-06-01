@@ -1,6 +1,5 @@
 package com.dicoding.kostkater.adapter
 
-
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -41,6 +40,11 @@ class RecommendationAdapter(private val listRecommendation: List<Recommendation>
                         moveWithObjectIntent.putExtra(DetailActivity.EXTRA_NAME, name)
                         moveWithObjectIntent.putExtra(DetailActivity.EXTRA_PHOTO_URL, photoUrl)
                         moveWithObjectIntent.putExtra(DetailActivity.EXTRA_DESCRIPTION, description)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_PRICE, price)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_CALORIE, calorie)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_CARBO, carbo)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_PROTEIN, protein)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_FAT, fat)
                         it.context.startActivity(moveWithObjectIntent)
                     }
                 }

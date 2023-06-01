@@ -13,6 +13,10 @@
 
     <string name="detail">Detail</string>
     <string name="nutrition">Nutrisi</string>
+    <string name="calorie">Kalori</string>
+    <string name="carbo">Karbohidrat</string>
+    <string name="protein">Protein</string>
+    <string name="fat">Lemak</string>
     <string name="view_recipe">Lihat Resep</string>
 
     <string name="slogan">Nourish Your Budget, Fuel Your Health!</string>

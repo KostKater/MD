@@ -23,6 +23,11 @@ class DetailActivity : AppCompatActivity() {
         val name = intent.getStringExtra(EXTRA_NAME)
         val photoUrl = intent.getStringExtra(EXTRA_PHOTO_URL)
         val description = intent.getStringExtra(EXTRA_DESCRIPTION)
+        val price = intent.getStringExtra(EXTRA_PRICE)
+        val calorie = intent.getStringExtra(EXTRA_CALORIE)
+        val carbo = intent.getStringExtra(EXTRA_CARBO)
+        val protein = intent.getStringExtra(EXTRA_PROTEIN)
+        val fat = intent.getStringExtra(EXTRA_FAT)
 
         Glide.with(this)
             .load(photoUrl)
@@ -30,6 +35,11 @@ class DetailActivity : AppCompatActivity() {
 
         binding.tvDetailName.text = name
         binding.tvDetailDescription.text = description
+        binding.tvDetailPrice.text = price
+        binding.tvCalorieValue.text = calorie
+        binding.tvCarboValue.text = carbo
+        binding.tvProteinValue.text = protein
+        binding.tvFatValue.text = fat
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -46,5 +56,10 @@ class DetailActivity : AppCompatActivity() {
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_PHOTO_URL = "extra_photo_url"
         const val EXTRA_DESCRIPTION = "extra_description"
+        const val EXTRA_PRICE = "extra_price"
+        const val EXTRA_CALORIE = "extra_calorie"
+        const val EXTRA_CARBO = "extra_carbo"
+        const val EXTRA_PROTEIN = "extra_protein"
+        const val EXTRA_FAT = "extra_fat"
     }
 }
