@@ -30,6 +30,7 @@ class RecommendationAdapter(private val listRecommendation: List<Recommendation>
             internal fun bind(recommendation: Recommendation) {
                 recommendation.run {
                     binding.tvItemName.text = name
+                    binding.tvItemPrice.text = price
 
                     Glide.with(binding.root.context)
                         .load(photoUrl)
