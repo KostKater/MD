@@ -1,11 +1,14 @@
 package com.dicoding.kostkater.ui.detail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ActivityDetailBinding
+import com.dicoding.kostkater.ui.login.LoginActivity
+import com.dicoding.kostkater.ui.recipe.RecipeActivity
 
 class DetailActivity : AppCompatActivity() {
 
@@ -20,6 +23,10 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.detail)
 
+        setDetailData()
+    }
+
+    private fun setDetailData() {
         val name = intent.getStringExtra(EXTRA_NAME)
         val photoUrl = intent.getStringExtra(EXTRA_PHOTO_URL)
         val description = intent.getStringExtra(EXTRA_DESCRIPTION)
@@ -40,6 +47,13 @@ class DetailActivity : AppCompatActivity() {
         binding.tvCarboValue.text = carbo
         binding.tvProteinValue.text = protein
         binding.tvFatValue.text = fat
+
+        binding.recipeButton.setOnClickListener {
+            val moveWithObjectIntent = Intent(this, RecipeActivity::class.java)
+            moveWithObjectIntent.putExtra(RecipeActivity.EXTRA_NAME, name)
+            moveWithObjectIntent.putExtra(RecipeActivity.EXTRA_PHOTO_URL, photoUrl)
+            startActivity(moveWithObjectIntent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
