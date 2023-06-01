@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toStartOf="@id/add_meal_plan_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_detail_photo"
-            tools:text="Menu" />
+            tools:text="Sup Ayam Klaten" />
 
         <TextView
             android:id="@+id/tv_detail_description"
@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toStartOf="@id/add_meal_plan_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_detail_name"
-            tools:text="Description" />
+            tools:text="Sup ayam dengan kuah gurih, potongan ayam, sayuran segar, dan bawang goreng." />
 
         <TextView
             android:id="@+id/tv_detail_price"
@@ -76,7 +76,7 @@
             app:layout_constraintEnd_toStartOf="@id/add_meal_plan_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
-            tools:text="Price" />
+            tools:text="Rp25.000" />
 
         <View
             android:id="@+id/divider"
@@ -287,7 +287,7 @@
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/resep_button"
+            android:id="@+id/recipe_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/view_recipe"

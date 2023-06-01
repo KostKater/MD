@@ -11,3 +11,8 @@ data class Recommendation(
     val protein: String,
     val fat: String,
 )
+
+data class Recipe(
+    val ingredients: List<String>,
+    val instructions: List<String>,
+)
