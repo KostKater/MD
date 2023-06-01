@@ -23,7 +23,14 @@ class RecipeViewModel : ViewModel() {
             "1 ruas lengkuas",
             "6 cabai rawit merah"
         ),
-        "")
+        listOf(
+            "Potong-potong daging sapi. Lalu cuci bersih.",
+            "Siapkan wajan. Tambahkan minyak. Setelah minyak panas, masukan bumbu yang sudah dihaluskan, daun salam, daun jeruk, dan sereh. Tumis hingga bumbu matang dan harum.",
+            "Tambahkan air. Masukan daging dan tunggu sampai mendidih. Setelah mendidih, masukkan santan.",
+            "Beri garam, gula, dan penyedap. Cek rasa.",
+            "Tunggu sampai air surut, daging empuk, dan matang."
+        )
+    )
 
     private val _recipe = MutableLiveData<Recipe>().apply {
         value = recipeObj

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.adapter.IngredientAdapter
+import com.dicoding.kostkater.adapter.InstructionAdapter
 import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.ActivityRecipeBinding
 import com.dicoding.kostkater.model.Recommendation
@@ -33,8 +34,8 @@ class RecipeActivity : AppCompatActivity() {
         setRecipeInfo()
         setupViewModel()
 
-        val layoutManager = LinearLayoutManager(this)
-        binding.rvIngredients.layoutManager = layoutManager
+        binding.rvIngredients.layoutManager = LinearLayoutManager(this)
+        binding.rvInstructions.layoutManager = LinearLayoutManager(this)
     }
 
     private fun setRecipeInfo() {
@@ -53,12 +54,18 @@ class RecipeActivity : AppCompatActivity() {
 
         recipeViewModel.recipe.observe(this) { recipe ->
             setIngredientData(recipe.ingredients)
+            setInstructionData(recipe.instructions)
         }
     }
 
     private fun setIngredientData(ingredient: List<String>) {
         val adapter = IngredientAdapter(ingredient)
         binding.rvIngredients.adapter = adapter
+    }
+
+    private fun setInstructionData(instruction: List<String>) {
+        val adapter = InstructionAdapter(instruction)
+        binding.rvInstructions.adapter = adapter
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

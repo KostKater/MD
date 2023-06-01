@@ -14,5 +14,5 @@ data class Recommendation(
 
 data class Recipe(
     val ingredients: List<String>,
-    val instructions: String,
+    val instructions: List<String>,
 )
