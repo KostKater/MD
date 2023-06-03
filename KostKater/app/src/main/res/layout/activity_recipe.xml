@@ -47,7 +47,7 @@
             android:layout_marginHorizontal="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
-            android:text="Bahan" />
+            tools:text="Bahan" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_ingredients"
@@ -68,7 +68,7 @@
             android:layout_marginHorizontal="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_ingredients"
-            android:text="Instruksi" />
+            tools:text="Instruksi" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_instructions"
@@ -77,6 +77,19 @@
             app:layout_constraintTop_toBottomOf="@id/tv_instructions"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="12dp"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

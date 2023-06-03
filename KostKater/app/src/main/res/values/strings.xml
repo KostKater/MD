@@ -23,5 +23,7 @@
     <string name="login">Masuk dengan Google</string>
 
     <string name="recipe">Resep</string>
+    <string name="ingredients">Bahan</string>
+    <string name="instructions">Instruksi</string>
 
 </resources>

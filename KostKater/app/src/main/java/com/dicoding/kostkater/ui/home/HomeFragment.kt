@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.FragmentHomeBinding
-import com.dicoding.kostkater.model.Recommendation
+import com.dicoding.kostkater.model.Meal
 
 class HomeFragment : Fragment() {
 
@@ -43,11 +43,23 @@ class HomeFragment : Fragment() {
         homeViewModel.meals.observe(viewLifecycleOwner) { recommendations ->
             setRecommendationData(recommendations)
         }
+
+        homeViewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
     }
 
-    private fun setRecommendationData(recommendations: List<Recommendation>) {
-        val adapter = RecommendationAdapter(recommendations)
+    private fun setRecommendationData(meals: List<Meal>) {
+        val adapter = RecommendationAdapter(meals)
         binding.rvRecommendation.adapter = adapter
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {
