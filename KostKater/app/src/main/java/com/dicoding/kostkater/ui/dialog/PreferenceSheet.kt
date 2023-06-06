@@ -1,4 +1,4 @@
-package com.dicoding.kostkater.ui.preference
+package com.dicoding.kostkater.ui.dialog
 
 import android.os.Bundle
 import android.util.Log
