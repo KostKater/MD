@@ -1,20 +1,19 @@
-package com.dicoding.kostkater.ui.login
+package com.dicoding.kostkater.ui.register
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kostkater.R
-import com.dicoding.kostkater.databinding.ActivityLoginBinding
+import com.dicoding.kostkater.databinding.ActivityRegisterBinding
 
-class LoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLoginBinding
+class RegisterActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupView()

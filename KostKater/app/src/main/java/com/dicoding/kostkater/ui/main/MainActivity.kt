@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ActivityMainBinding
 import com.dicoding.kostkater.ui.login.LoginActivity
+import com.dicoding.kostkater.ui.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, WelcomeActivity::class.java)
                 startActivity(intent)
                 true
             }
