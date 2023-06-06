@@ -20,8 +20,9 @@
     <string name="fat">Lemak</string>
     <string name="view_recipe">Lihat Resep</string>
 
-    <string name="slogan">Nourish Your Budget, Fuel Your Health!</string>
-    <string name="login">Masuk dengan Google</string>
+    <string name="slogan">Nourish Your Budget,\nFuel Your Health.</string>
+    <string name="login">Masuk</string>
+    <string name="register">Daftar</string>
 
     <string name="recipe">Resep</string>
     <string name="ingredients">Bahan</string>
