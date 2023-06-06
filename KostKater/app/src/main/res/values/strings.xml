@@ -35,4 +35,6 @@
 
     <string name="budget">Budget</string>
     <string name="apply">Terapkan</string>
+    <string name="welcome_back">Selamat datang kembali!</string>
+    <string name="welcome">Selamat datang!</string>
 </resources>

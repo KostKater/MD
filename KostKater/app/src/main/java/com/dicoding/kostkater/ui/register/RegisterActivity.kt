@@ -1,26 +1,22 @@
-package com.dicoding.kostkater.ui.welcome
+package com.dicoding.kostkater.ui.register
 
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.dicoding.kostkater.R
-import com.dicoding.kostkater.databinding.ActivityWelcomeBinding
-import com.dicoding.kostkater.ui.login.LoginActivity
-import com.dicoding.kostkater.ui.register.RegisterActivity
+import com.dicoding.kostkater.databinding.ActivityRegisterBinding
 
-class WelcomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWelcomeBinding
+class RegisterActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupView()
-        setupAction()
     }
 
     private fun setupView() {
@@ -34,15 +30,5 @@ class WelcomeActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
-    }
-
-    private fun setupAction() {
-        binding.loginButton.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
-
-        binding.registerButton.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
     }
 }
