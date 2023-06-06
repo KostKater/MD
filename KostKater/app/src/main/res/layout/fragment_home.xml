@@ -57,7 +57,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="8dp"
                     android:textAllCaps="false"
-                    android:text="@string/button_preference" />
+                    android:text="@string/set_preference" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -91,8 +91,8 @@
             android:layout_height="wrap_content"
             android:elevation="10dp"
             android:visibility="gone"
-            app:layout_constraintTop_toTopOf="@id/rv_recommendation"
-            app:layout_constraintBottom_toBottomOf="@id/rv_recommendation"
+            app:layout_constraintTop_toBottomOf="@id/text_recommendation"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:visibility="visible" />

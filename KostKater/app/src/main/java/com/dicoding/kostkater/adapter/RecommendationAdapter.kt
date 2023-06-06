@@ -1,16 +1,15 @@
 package com.dicoding.kostkater.adapter
 
-
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.databinding.ItemRecommendationBinding
-import com.dicoding.kostkater.model.Recommendation
+import com.dicoding.kostkater.model.Meal
 import com.dicoding.kostkater.ui.detail.DetailActivity
 
-class RecommendationAdapter(private val listRecommendation: List<Recommendation>) : RecyclerView.Adapter<RecommendationAdapter.ViewHolder>() {
+class RecommendationAdapter(private val listMeal: List<Meal>) : RecyclerView.Adapter<RecommendationAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -20,15 +19,15 @@ class RecommendationAdapter(private val listRecommendation: List<Recommendation>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listRecommendation[position])
+        holder.bind(listMeal[position])
     }
 
-    override fun getItemCount() = listRecommendation.size
+    override fun getItemCount() = listMeal.size
 
     class ViewHolder(private val binding: ItemRecommendationBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            internal fun bind(recommendation: Recommendation) {
-                recommendation.run {
+            internal fun bind(meal: Meal) {
+                meal.run {
                     binding.tvItemName.text = name
                     binding.tvItemPrice.text = price
 
@@ -38,9 +37,7 @@ class RecommendationAdapter(private val listRecommendation: List<Recommendation>
 
                     binding.root.setOnClickListener {
                         val moveWithObjectIntent = Intent(it.context, DetailActivity::class.java)
-                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_NAME, name)
-                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_PHOTO_URL, photoUrl)
-                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_DESCRIPTION, description)
+                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_MEAL, meal)
                         it.context.startActivity(moveWithObjectIntent)
                     }
                 }

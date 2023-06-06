@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.FragmentHomeBinding
-import com.dicoding.kostkater.model.Recommendation
+import com.dicoding.kostkater.model.Meal
+import com.dicoding.kostkater.ui.preference.PreferenceSheet
 
 class HomeFragment : Fragment() {
 
@@ -34,6 +37,10 @@ class HomeFragment : Fragment() {
         val layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvRecommendation.layoutManager = layoutManager
 
+        binding.buttonPreference.setOnClickListener {
+            PreferenceSheet().show(parentFragmentManager, "preferenceTag")
+        }
+
         return root
     }
 
@@ -43,11 +50,23 @@ class HomeFragment : Fragment() {
         homeViewModel.meals.observe(viewLifecycleOwner) { recommendations ->
             setRecommendationData(recommendations)
         }
+
+        homeViewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
     }
 
-    private fun setRecommendationData(recommendations: List<Recommendation>) {
-        val adapter = RecommendationAdapter(recommendations)
+    private fun setRecommendationData(meals: List<Meal>) {
+        val adapter = RecommendationAdapter(meals)
         binding.rvRecommendation.adapter = adapter
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {
