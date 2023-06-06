@@ -6,7 +6,7 @@
         <item name="colorPrimaryVariant">@color/reseda_green</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/reseda_green</item>
+        <item name="colorSecondary">@color/selective_yellow</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

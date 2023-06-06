@@ -2,7 +2,7 @@
     <string name="app_name">KostKater</string>
     <string name="title_home">Home</string>
     <string name="title_meal_plan">Meal Plan</string>
-    <string name="logout">Logout</string>
+    <string name="logout">Keluar</string>
 
     <string name="banner_title">Mau makan apa hari ini?</string>
     <string name="banner_subtitle">Yuk, atur preferensi dulu agar rekomendasi kamu lebih maksimal!</string>
@@ -20,8 +20,12 @@
     <string name="fat">Lemak</string>
     <string name="view_recipe">Lihat Resep</string>
 
-    <string name="slogan">Nourish Your Budget, Fuel Your Health!</string>
-    <string name="login">Masuk dengan Google</string>
+    <string name="slogan">Nourish Your Budget,\nFuel Your Health.</string>
+    <string name="login">Login</string>
+    <string name="register">Daftar</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Konfirmasi password</string>
 
     <string name="recipe">Resep</string>
     <string name="ingredients">Bahan</string>
@@ -31,4 +35,6 @@
 
     <string name="budget">Budget</string>
     <string name="apply">Terapkan</string>
+    <string name="welcome_back">Selamat datang kembali!</string>
+    <string name="welcome">Selamat datang!</string>
 </resources>
