@@ -57,7 +57,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="8dp"
                     android:textAllCaps="false"
-                    android:text="@string/button_preference" />
+                    android:text="@string/set_preference" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
