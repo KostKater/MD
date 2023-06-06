@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.FragmentHomeBinding
 import com.dicoding.kostkater.model.Meal
-import com.dicoding.kostkater.ui.dialog.BudgetSheet
-import com.dicoding.kostkater.ui.dialog.IngredientSheet
+import com.dicoding.kostkater.ui.dialog.FilterSheet
 import com.dicoding.kostkater.ui.dialog.PreferenceSheet
 
 class HomeFragment : Fragment() {
@@ -42,11 +41,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.budgetButton.setOnClickListener {
-            BudgetSheet().show(parentFragmentManager, "budgetTag")
-        }
-
-        binding.ingredientButton.setOnClickListener {
-            IngredientSheet().show(parentFragmentManager, "IngredientTag")
+            FilterSheet().show(parentFragmentManager, "budgetTag")
         }
 
         return root
