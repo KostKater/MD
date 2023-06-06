@@ -1,4 +1,4 @@
-package com.dicoding.kostkater.ui.preference
+package com.dicoding.kostkater.ui.dialog
 
 import android.os.Bundle
 import android.util.Log
@@ -6,28 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dicoding.kostkater.R
-import com.dicoding.kostkater.databinding.FragmentPreferenceSheetBinding
+import com.dicoding.kostkater.databinding.FragmentIngredientSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class PreferenceSheet : BottomSheetDialogFragment() {
+class IngredientSheet : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentPreferenceSheetBinding
+    private lateinit var binding: FragmentIngredientSheetBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.saveButton.setOnClickListener {
+        binding.searchButton.setOnClickListener {
             savePreference()
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentPreferenceSheetBinding.inflate(inflater, container, false)
+        binding = FragmentIngredientSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     private fun savePreference() {
-        Log.d("PREFERENCE SHEET: ", binding.name.text.toString())
+        Log.d("INGREDIENT SHEET: ", binding.name.text.toString())
         dismiss()
     }
 

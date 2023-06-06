@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.FragmentHomeBinding
 import com.dicoding.kostkater.model.Meal
-import com.dicoding.kostkater.ui.preference.PreferenceSheet
+import com.dicoding.kostkater.ui.dialog.BudgetSheet
+import com.dicoding.kostkater.ui.dialog.IngredientSheet
+import com.dicoding.kostkater.ui.dialog.PreferenceSheet
 
 class HomeFragment : Fragment() {
 
@@ -37,8 +37,16 @@ class HomeFragment : Fragment() {
         val layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvRecommendation.layoutManager = layoutManager
 
-        binding.buttonPreference.setOnClickListener {
+        binding.preferenceButton.setOnClickListener {
             PreferenceSheet().show(parentFragmentManager, "preferenceTag")
+        }
+
+        binding.budgetButton.setOnClickListener {
+            BudgetSheet().show(parentFragmentManager, "budgetTag")
+        }
+
+        binding.ingredientButton.setOnClickListener {
+            IngredientSheet().show(parentFragmentManager, "IngredientTag")
         }
 
         return root
