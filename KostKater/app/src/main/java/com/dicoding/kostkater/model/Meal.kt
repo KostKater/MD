@@ -1,7 +1,10 @@
 package com.dicoding.kostkater.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-data class Recommendation(
+@Parcelize
+data class Meal(
     val photoUrl: String,
     val name: String,
     val description: String,
@@ -10,7 +13,7 @@ data class Recommendation(
     val carbo: String,
     val protein: String,
     val fat: String,
-)
+) : Parcelable
 
 data class Recipe(
     val ingredients: List<String>,

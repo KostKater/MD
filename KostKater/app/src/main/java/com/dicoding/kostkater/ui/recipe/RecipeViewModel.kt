@@ -3,9 +3,15 @@ package com.dicoding.kostkater.ui.recipe
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.Recipe
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class RecipeViewModel : ViewModel() {
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     private val recipeObj = Recipe(
         listOf(
@@ -32,8 +38,19 @@ class RecipeViewModel : ViewModel() {
         )
     )
 
-    private val _recipe = MutableLiveData<Recipe>().apply {
-        value = recipeObj
-    }
+    private val _recipe = MutableLiveData<Recipe>()
     val recipe: LiveData<Recipe> = _recipe
+
+    init {
+        viewModelScope.launch {
+            getRecipe()
+        }
+    }
+
+    private suspend fun getRecipe() {
+        _isLoading.value = true
+        delay(2000)
+        _recipe.value = recipeObj
+        _isLoading.value = false
+    }
 }
