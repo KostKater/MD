@@ -4,8 +4,8 @@
     <string name="title_meal_plan">Meal Plan</string>
     <string name="logout">Keluar</string>
 
-    <string name="banner_title">Mau makan apa hari ini?</string>
-    <string name="banner_subtitle">Yuk, atur preferensi dulu agar rekomendasi kamu lebih maksimal!</string>
+    <string name="banner_title">Makan apa hari ini?</string>
+    <string name="banner_subtitle">Yuk, atur preferensi dulu agar\nrekomendasi kamu lebih maksimal!</string>
     <string name="set_preference">Atur Preferensi</string>
     <string name="recommendation">Rekomendasi Menu</string>
     <string name="filter">Filter</string>
