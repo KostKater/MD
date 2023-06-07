@@ -56,8 +56,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:paddingVertical="12dp"
         android:textSize="16sp"
+        android:paddingVertical="20dp"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
         android:text="@string/apply" />
 
 </LinearLayout>

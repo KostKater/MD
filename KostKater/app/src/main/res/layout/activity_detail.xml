@@ -329,6 +329,7 @@
             app:layout_constraintTop_toBottomOf="@id/cv_fat"
             android:layout_marginHorizontal="16dp"
             android:paddingVertical="20dp"
+            android:backgroundTint="@color/black"
             app:shapeAppearanceOverlay="@style/RoundedSquare"/>
 
         <androidx.constraintlayout.widget.Guideline

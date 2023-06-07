@@ -24,8 +24,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="24dp"
-                android:background="@drawable/waffle">
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="36dp"
+                android:background="@drawable/banner">
 
                 <TextView
                     android:id="@+id/banner_title"
@@ -53,15 +54,15 @@
                     android:id="@+id/preference_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/set_preference"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/banner_subtitle"
                     app:shapeAppearanceOverlay="@style/RoundedSquare"
-                    android:backgroundTint="@color/selective_yellow"
+                    android:paddingVertical="16dp"
+                    android:paddingHorizontal="20dp"
                     android:textColor="@color/black"
-                    android:paddingVertical="10dp"
-                    android:paddingHorizontal="14dp"/>
+                    android:backgroundTint="@color/selective_yellow"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

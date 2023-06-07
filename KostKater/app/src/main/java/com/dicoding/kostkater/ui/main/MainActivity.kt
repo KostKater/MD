@@ -1,36 +1,24 @@
 package com.dicoding.kostkater.ui.main
 
 import android.content.Intent
-import android.os.Build
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.Html
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
-import androidx.appcompat.app.ActionBar
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.ActivityMainBinding
 import com.dicoding.kostkater.model.Meal
 import com.dicoding.kostkater.ui.dialog.FilterSheet
 import com.dicoding.kostkater.ui.dialog.PreferenceSheet
-import com.dicoding.kostkater.ui.home.HomeViewModel
-import com.dicoding.kostkater.ui.login.LoginActivity
 import com.dicoding.kostkater.ui.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
@@ -42,7 +30,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.hide()
+        supportActionBar?.title = SpannableString(getString(R.string.app_name)).apply {
+            setSpan(ForegroundColorSpan(ContextCompat.getColor(this@MainActivity, R.color.black)), 0, length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+        }
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, android.R.color.transparent)))
 
         setupViewModel()
 
