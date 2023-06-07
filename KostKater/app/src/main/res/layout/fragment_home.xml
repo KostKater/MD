@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,14 +19,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginVertical="16dp"
-            app:cardCornerRadius="5dp"
-            android:backgroundTint="@color/peach_yellow">
+            android:backgroundTint="@color/eerie_black">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="18dp"
-                android:paddingVertical="16sp">
+                android:paddingVertical="20sp">
 
                 <TextView
                     android:id="@+id/banner_title"
@@ -35,7 +35,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/onyx"
+                    android:textColor="@color/white"
                     android:text="@string/banner_title" />
 
                 <TextView
@@ -46,7 +46,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="4dp"
                     android:textSize="14sp"
-                    android:textColor="@color/onyx"
+                    android:textColor="@color/white"
                     android:text="@string/banner_subtitle" />
 
                 <Button
@@ -60,7 +60,7 @@
                     android:text="@string/set_preference" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/text_recommendation"
