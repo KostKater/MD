@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="20dp">
+        android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/iv_recipe_photo"
@@ -17,66 +17,88 @@
             android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="H,4:2"
+            app:layout_constraintDimensionRatio="H,4:3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/sup_ayam_klaten" />
 
-        <TextView
-            android:id="@+id/tv_recipe_name"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_ingredients"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
-            android:layout_marginHorizontal="16dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/onyx"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_recipe_photo"
-            tools:text="Sup Ayam Klaten" />
-
-        <TextView
-            android:id="@+id/tv_ingredients"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/reseda_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal2"
+            app:cardCornerRadius="25dp"
             android:layout_marginHorizontal="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
-            tools:text="Bahan" />
+            android:layout_marginTop="24dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_ingredients"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_ingredients"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="12dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/tv_ingredients"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/eerie_black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Bahan-bahan"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_ingredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_ingredients"
+                    android:layout_marginTop="12dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tv_instructions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/reseda_green"
-            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/eerie_black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_ingredients"
-            tools:text="Instruksi" />
+            app:layout_constraintTop_toBottomOf="@id/cv_ingredients"
+            tools:text="Instruksi"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="36dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_instructions"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintTop_toBottomOf="@id/tv_instructions"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_margin="16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineHorizontal2"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="200dp"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -85,11 +107,34 @@
             android:layout_height="wrap_content"
             android:elevation="10dp"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guidelineHorizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_recipe_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/floatingActionButton2"
+            app:layout_constraintBottom_toBottomOf="@id/floatingActionButton2"
+            tools:text="Sup Ayam Klaten" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="16dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

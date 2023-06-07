@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         setupViewModel()
 
         val layoutManager = GridLayoutManager(this, 2)

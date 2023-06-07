@@ -26,8 +26,7 @@ class RecipeActivity : AppCompatActivity() {
         binding = ActivityRecipeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.recipe)
+        supportActionBar?.hide()
 
         setRecipeInfo()
         setupViewModel()

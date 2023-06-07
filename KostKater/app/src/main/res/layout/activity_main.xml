@@ -93,7 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/banner"
             android:drawableLeft="@drawable/page_info_24"
-            android:textColor="@color/light_gray"
+            android:textColor="@color/gray"
             app:shapeAppearanceOverlay="@style/RoundedSquare"/>
 
 
