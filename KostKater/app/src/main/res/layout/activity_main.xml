@@ -88,14 +88,14 @@
             android:text="@string/filter"
             android:textAllCaps="false"
             android:textSize="16sp"
-            app:strokeColor="@color/hunter_green"
-            app:strokeWidth="1dp"
+            app:strokeWidth="0dp"
             style="?attr/materialButtonOutlinedStyle"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/banner"
             android:drawableLeft="@drawable/page_info_24"
-            app:shapeAppearanceOverlay="@style/Rounded" />
+            android:textColor="@color/light_gray"
+            app:shapeAppearanceOverlay="@style/RoundedSquare"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
