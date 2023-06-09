@@ -22,6 +22,9 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+        binding.floatingActionButton.setOnClickListener {
+            finish()
+        }
 
         setDetailData()
     }

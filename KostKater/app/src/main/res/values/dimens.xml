@@ -7,7 +7,7 @@
     <dimen name="card_nutrition_text_margin">14dp</dimen>
     <dimen name="card_nutrition_inner_vertical_margin">10dp</dimen>
     <dimen name="card_nutrition_outer_vertical_margin">10dp</dimen>
-    <dimen name="card_nutrition_inner_horizontal_margin">24dp</dimen>
+    <dimen name="card_nutrition_inner_horizontal_margin">16dp</dimen>
     <dimen name="card_nutrition_outer_horizontal_margin">8dp</dimen>
     <dimen name="card_corner_radius">25dp</dimen>
 

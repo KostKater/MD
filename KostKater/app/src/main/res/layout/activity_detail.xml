@@ -80,6 +80,7 @@
                         android:textColor="@color/hunter_green"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
                         tools:text="Rp25.000" />
 
@@ -137,6 +138,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/eerie_black"
                         app:layout_constraintStart_toEndOf="@id/iv_calorie"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:text="@string/calorie"
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"/>
@@ -150,6 +152,7 @@
                         app:layout_constraintTop_toBottomOf="@id/tv_calorie"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iv_calorie"
+                        app:layout_constraintEnd_toEndOf="parent"
                         tools:text="200kal"
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"/>
 
@@ -194,6 +197,7 @@
                         android:textColor="@color/eerie_black"
                         app:layout_constraintStart_toEndOf="@id/iv_carbo"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:text="@string/carbo"
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"/>
 
@@ -206,7 +210,7 @@
                         app:layout_constraintTop_toBottomOf="@id/tv_carbo"
                         app:layout_constraintStart_toEndOf="@id/iv_carbo"
                         app:layout_constraintBottom_toBottomOf="parent"
-
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"
                         tools:text="20g" />
 
@@ -251,6 +255,7 @@
                         android:textColor="@color/eerie_black"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iv_protein"
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"
                         android:text="@string/protein" />
 
@@ -264,6 +269,7 @@
                         app:layout_constraintStart_toEndOf="@id/iv_protein"
                         app:layout_constraintTop_toBottomOf="@id/tv_protein"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         tools:text="15g" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -307,6 +313,7 @@
                         android:textColor="@color/eerie_black"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iv_fat"
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"
                         android:text="@string/fat" />
 
@@ -320,6 +327,7 @@
                         app:layout_constraintTop_toBottomOf="@id/tv_fat"
                         app:layout_constraintStart_toEndOf="@id/iv_fat"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         tools:text="10g" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,9 @@ class RecipeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+        binding.floatingActionButton2.setOnClickListener {
+            finish()
+        }
 
         setRecipeInfo()
         setupViewModel()
@@ -75,13 +78,16 @@ class RecipeActivity : AppCompatActivity() {
         binding.tvInstructions.text = getString(R.string.instructions)
         val adapter = InstructionAdapter(instruction)
         binding.rvInstructions.adapter = adapter
+        binding.tvBonApetit.text = getString(R.string.bon_apetit)
     }
 
     private fun showLoading(isLoading: Boolean) {
         if (isLoading) {
             binding.progressBar.visibility = View.VISIBLE
+            binding.progressBar2.visibility = View.VISIBLE
         } else {
             binding.progressBar.visibility = View.GONE
+            binding.progressBar2.visibility = View.GONE
         }
     }
 

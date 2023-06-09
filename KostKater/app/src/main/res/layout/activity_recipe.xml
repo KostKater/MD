@@ -52,12 +52,12 @@
                     android:id="@+id/tv_ingredients"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/font_l"
+                    android:textSize="@dimen/font_xl"
                     android:textStyle="bold"
                     android:textColor="@color/eerie_black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/ingredients"
+                    tools:text="@string/ingredients"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -65,6 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_ingredients"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginTop="12dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -80,7 +81,7 @@
             android:textColor="@color/eerie_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_ingredients"
-            android:text="@string/instructions"
+            tools:text="@string/instructions"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="24dp"
             android:layout_marginHorizontal="36dp"/>
@@ -91,6 +92,19 @@
             android:layout_height="match_parent"
             app:layout_constraintTop_toBottomOf="@id/tv_instructions"
             android:layout_margin="@dimen/activity_margin"/>
+
+        <TextView
+            android:id="@+id/tv_bon_apetit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_instructions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/activity_margin"
+            tools:text="Selamat makan!"
+            android:textSize="@dimen/font_xs"
+            android:gravity="center"/>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -126,6 +140,8 @@
             android:textSize="@dimen/font_xl"
             android:textStyle="bold"
             android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/floatingActionButton2"
+            android:gravity="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/floatingActionButton2"
             app:layout_constraintBottom_toBottomOf="@id/floatingActionButton2"

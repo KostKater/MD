@@ -38,8 +38,19 @@ class RecipeViewModel : ViewModel() {
         )
     )
 
-    private val _recipe = MutableLiveData<Recipe>().apply {
-        value = recipeObj
-    }
+    private val _recipe = MutableLiveData<Recipe>()
     val recipe: LiveData<Recipe> = _recipe
+
+    init {
+        viewModelScope.launch {
+            getRecipe()
+        }
+    }
+
+    private suspend fun getRecipe() {
+        _isLoading.value = true
+        delay(2000)
+        _recipe.value = recipeObj
+        _isLoading.value = false
+    }
 }
