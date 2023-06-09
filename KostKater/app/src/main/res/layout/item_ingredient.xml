@@ -6,6 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
     android:textColor="@color/eerie_black"
-    android:textSize="14sp"
+    android:textSize="@dimen/font_xs"
     tools:text="Ayam"
     />

@@ -127,7 +127,7 @@
                         app:layout_constraintEnd_toStartOf="@id/tv_calorie"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:src="@drawable/local_fire_department_36" />
+                        android:src="@drawable/flame_24" />
 
                     <TextView
                         android:id="@+id/tv_calorie"
@@ -148,6 +148,7 @@
                         android:textSize="@dimen/font_s"
                         android:textColor="@color/eerie_black"
                         app:layout_constraintTop_toBottomOf="@id/tv_calorie"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iv_calorie"
                         tools:text="200kal"
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"/>
@@ -182,7 +183,7 @@
                         app:layout_constraintEnd_toStartOf="@id/tv_carbo"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:src="@drawable/rice_bowl_36" />
+                        android:src="@drawable/bowl_rice_24" />
 
                     <TextView
                         android:id="@+id/tv_carbo"
@@ -204,6 +205,8 @@
                         android:textColor="@color/eerie_black"
                         app:layout_constraintTop_toBottomOf="@id/tv_carbo"
                         app:layout_constraintStart_toEndOf="@id/iv_carbo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"
                         tools:text="20g" />
 
@@ -237,7 +240,7 @@
                         app:layout_constraintEnd_toStartOf="@id/tv_protein"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:src="@drawable/egg_36" />
+                        android:src="@drawable/egg_24" />
 
                     <TextView
                         android:id="@+id/tv_protein"
@@ -260,6 +263,7 @@
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"
                         app:layout_constraintStart_toEndOf="@id/iv_protein"
                         app:layout_constraintTop_toBottomOf="@id/tv_protein"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         tools:text="15g" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -292,7 +296,7 @@
                         app:layout_constraintEnd_toStartOf="@id/tv_fat"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:src="@drawable/kebab_dining_36" />
+                        android:src="@drawable/drumstick_24" />
 
                     <TextView
                         android:id="@+id/tv_fat"
@@ -315,6 +319,7 @@
                         android:layout_marginHorizontal="@dimen/card_nutrition_text_margin"
                         app:layout_constraintTop_toBottomOf="@id/tv_fat"
                         app:layout_constraintStart_toEndOf="@id/iv_fat"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         tools:text="10g" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -345,7 +350,8 @@
                 android:backgroundTint="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_margin="@dimen/activity_margin"/>
+                android:layout_margin="@dimen/activity_margin"
+                android:contentDescription="@string/back"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
