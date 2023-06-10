@@ -5,6 +5,7 @@ import com.dicoding.kostkater.ui.main.MainViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.kostkater.ui.login.LoginViewModel
 import com.dicoding.kostkater.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
@@ -18,6 +19,10 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
 
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(pref) as T
+            }
+
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(pref) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

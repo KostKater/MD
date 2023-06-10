@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
-import com.dicoding.kostkater.model.register.RegisterRequest
-import com.dicoding.kostkater.model.register.RegisterResponse
-import com.dicoding.kostkater.model.register.UserInfo
+import com.dicoding.kostkater.model.auth.AuthRequest
+import com.dicoding.kostkater.model.auth.RegisterResponse
+import com.dicoding.kostkater.model.auth.UserInfo
 import com.dicoding.kostkater.remote.ApiConfig
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -31,7 +31,7 @@ class RegisterViewModel(private val pref: UserPreference) : ViewModel() {
 
     fun register(email: String, password: String) {
         _isLoading.value = true
-        val response = service.register(RegisterRequest(password, email))
+        val response = service.register(AuthRequest(password, email))
         response.enqueue(object : Callback<RegisterResponse> {
             override fun onResponse(
                 call: Call<RegisterResponse>,
@@ -53,7 +53,7 @@ class RegisterViewModel(private val pref: UserPreference) : ViewModel() {
                 _isLoading.value = false
                 _registerResponse.value = RegisterResponse(
                     UserInfo("",""),
-                    "Gagal mendaftar. Periksa koneksi internet kamu."
+                    "Gagal mendaftar"
                 )
             }
         })

@@ -1,8 +1,8 @@
-package com.dicoding.kostkater.model.register
+package com.dicoding.kostkater.model.auth
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterResponse(
+data class LoginResponse(
 
 	@field:SerializedName("userInfo")
 	val userInfo: UserInfo,

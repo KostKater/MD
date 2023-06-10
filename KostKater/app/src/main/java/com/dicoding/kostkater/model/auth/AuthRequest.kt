@@ -1,8 +1,8 @@
-package com.dicoding.kostkater.model.register
+package com.dicoding.kostkater.model.auth
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterRequest(
+data class AuthRequest(
 
 	@field:SerializedName("password")
 	val password: String,

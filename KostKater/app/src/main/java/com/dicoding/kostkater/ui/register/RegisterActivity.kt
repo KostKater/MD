@@ -64,15 +64,18 @@ class RegisterActivity : AppCompatActivity() {
                 showAlertDialog("Oops!", registerResponse.message, false)
                 return@observe
             }
-            showAlertDialog("Hore!", "Welcome to KostKater.", true)
+            showAlertDialog("Hore!", registerResponse.message, true)
         }
     }
 
     private fun setupAction() {
         binding.registerButton.setOnClickListener {
             val email = binding.edRegisterEmail.text.toString()
+            binding.emailEditTextLayout.error = null
             val password = binding.edRegisterPassword.text.toString()
+            binding.passwordEditTextLayout.error = null
             val confirmPassword = binding.edRegisterPassword2.text.toString()
+            binding.passwordEditTextLayout2.error = null
             when {
                 email.isEmpty() -> {
                     binding.emailEditTextLayout.error = getString(R.string.required)
