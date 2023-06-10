@@ -1,5 +1,19 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="card_recommendation_margin">16dp</dimen>
+    <dimen name="big_card_padding">24dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="button_vertical_padding">16dp</dimen>
+    <dimen name="card_nutrition_text_margin">14dp</dimen>
+    <dimen name="card_nutrition_inner_vertical_margin">10dp</dimen>
+    <dimen name="card_nutrition_outer_vertical_margin">10dp</dimen>
+    <dimen name="card_nutrition_inner_horizontal_margin">16dp</dimen>
+    <dimen name="card_nutrition_outer_horizontal_margin">8dp</dimen>
+    <dimen name="card_corner_radius">25dp</dimen>
+
+    <dimen name="font_xs">14sp</dimen>
+    <dimen name="font_s">16sp</dimen>
+    <dimen name="font_m">18sp</dimen>
+    <dimen name="font_l">20sp</dimen>
+    <dimen name="font_xl">24sp</dimen>
 </resources>

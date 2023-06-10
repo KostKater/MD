@@ -4,16 +4,16 @@
     <string name="title_meal_plan">Meal Plan</string>
     <string name="logout">Keluar</string>
 
-    <string name="banner_title">Mau makan apa hari ini?</string>
-    <string name="banner_subtitle">Yuk, atur preferensi dulu agar rekomendasi kamu lebih maksimal!</string>
+    <string name="banner_title">Makan apa hari ini?</string>
+    <string name="banner_subtitle">Yuk, atur preferensi dulu agar\nrekomendasi kamu lebih maksimal!</string>
     <string name="set_preference">Atur Preferensi</string>
     <string name="recommendation">Rekomendasi Menu</string>
     <string name="filter">Filter</string>
 
-    <string name="back">Back</string>
+    <string name="back">Kembali</string>
 
     <string name="detail">Detail</string>
-    <string name="nutrition">Nutrisi</string>
+    <string name="nutrition">Informasi Nutrisi</string>
     <string name="calorie">Kalori</string>
     <string name="carbo">Karbohidrat</string>
     <string name="protein">Protein</string>
@@ -28,8 +28,9 @@
     <string name="confirm_password">Konfirmasi password</string>
 
     <string name="recipe">Resep</string>
-    <string name="ingredients">Bahan</string>
+    <string name="ingredients">Bahan-bahan</string>
     <string name="instructions">Instruksi</string>
+    <string name="bon_apetit">Selamat makan!</string>
 
     <string name="save">Simpan</string>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.dialog.PreferenceSheet">
+    tools:context=".ui.dialog.PreferenceSheet"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:layout_width="match_parent"
@@ -36,10 +36,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:paddingVertical="12dp"
+        android:paddingVertical="20dp"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textAllCaps="false"
         android:text="@string/save" />
 
 </LinearLayout>

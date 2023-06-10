@@ -1,4 +1,4 @@
-package com.dicoding.kostkater.ui.home
+package com.dicoding.kostkater.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.dicoding.kostkater.model.Meal
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class MainViewModel: ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
