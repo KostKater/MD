@@ -16,4 +16,5 @@
     <color name="selective_yellow">#FFB703</color>
     <color name="eerie_black">#212529</color>
     <color name="gray">#404040</color>
+    <color name="error_red">#ff6f59</color>
 </resources>
