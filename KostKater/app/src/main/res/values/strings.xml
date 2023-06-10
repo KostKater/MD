@@ -45,4 +45,9 @@
     <string name="not_matched">Konfirmasi password tidak cocok</string>
 
     <string name="tips">Temukan rekomendasi makanan sesuai dengan preferensimu!</string>
+    <string name="cancel">Batal</string>
+    <string name="logout_confirm">Logout</string>
+    <string name="logout_confirm_desc">"Yakin ingin keluar?"</string>
+
+    <string name="what_to_eat">Mau makan apa\nhari ini?</string>
 </resources>

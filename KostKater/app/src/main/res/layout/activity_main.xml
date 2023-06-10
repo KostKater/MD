@@ -11,6 +11,31 @@
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/activity_margin">
 
+        <TextView
+            android:id="@+id/tv_greetings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_banner"
+            android:elevation="10dp"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="@dimen/font_xl"
+            android:textStyle="bold"
+            tools:text="Selamat pagi."/>
+
+        <TextView
+            android:id="@+id/tv_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/iv_banner"
+            app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+            android:elevation="10dp"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:text="@string/what_to_eat"/>
+
         <ImageView
             android:id="@+id/iv_banner"
             android:layout_width="match_parent"
