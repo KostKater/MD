@@ -3,12 +3,17 @@ package com.dicoding.kostkater.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.Meal
+import com.dicoding.kostkater.model.UserPreference
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
+class MainViewModel(private val pref: UserPreference): ViewModel() {
+
+    private val _meals = MutableLiveData<List<Meal>>()
+    val meals: LiveData<List<Meal>> = _meals
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -56,18 +61,25 @@ class MainViewModel: ViewModel() {
         )
     )
 
-    private val _meals = MutableLiveData<List<Meal>>()
-    val meals: LiveData<List<Meal>> = _meals
-
     init {
         viewModelScope.launch {
             getMeals()
         }
     }
 
+    fun getToken(): LiveData<String> {
+        return pref.token.asLiveData()
+    }
+
+    fun logout() {
+        viewModelScope.launch {
+            pref.saveToken("")
+        }
+    }
+
     private suspend fun getMeals() {
         _isLoading.value = true
-        delay(2000)
+        delay(3000)
         _meals.value = recommendations
         _isLoading.value = false
     }
