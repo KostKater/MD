@@ -376,6 +376,7 @@
         android:layout_marginBottom="@dimen/activity_margin"
         android:layout_marginHorizontal="@dimen/activity_margin"
         android:paddingVertical="@dimen/button_vertical_padding"
+        android:backgroundTint="@color/black"
         app:shapeAppearanceOverlay="@style/RoundedSquare"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

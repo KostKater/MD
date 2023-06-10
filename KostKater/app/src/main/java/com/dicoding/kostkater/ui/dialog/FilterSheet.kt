@@ -27,7 +27,7 @@ class FilterSheet : BottomSheetDialogFragment() {
     }
 
     private fun savePreference() {
-        Log.d("SEARCH SHEET: ", binding.inputBudget.text.toString())
+        Log.d("SEARCH SHEET: ", binding.inputMinPrice.text.toString())
         dismiss()
     }
 

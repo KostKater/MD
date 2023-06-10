@@ -34,7 +34,7 @@
 
     <string name="save">Simpan</string>
 
-    <string name="budget">Budget</string>
+    <string name="price">Harga</string>
     <string name="apply">Terapkan</string>
     <string name="welcome_back">Selamat datang kembali!</string>
     <string name="welcome">Selamat datang!</string>
@@ -50,4 +50,5 @@
     <string name="logout_confirm_desc">"Yakin ingin keluar?"</string>
 
     <string name="what_to_eat">Mau makan apa\nhari ini?</string>
+    <string name="ingredient">Bahan makanan</string>
 </resources>

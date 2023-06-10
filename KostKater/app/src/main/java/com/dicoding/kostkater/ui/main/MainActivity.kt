@@ -128,9 +128,9 @@ class MainActivity : AppCompatActivity() {
         val calendar = Calendar.getInstance()
 
         return when (calendar.get(Calendar.HOUR_OF_DAY)) {
-            in 5..9 -> "pagi"
-            in 10..14 -> "siang"
-            in 15..17 -> "sore"
+            in 1..10 -> "pagi"
+            in 11..14 -> "siang"
+            in 15..18 -> "sore"
             else -> "malam"
         }
     }
