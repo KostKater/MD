@@ -43,4 +43,6 @@
     <string name="next">Lanjut</string>
     <string name="required">Wajib diisi</string>
     <string name="not_matched">Konfirmasi password tidak cocok</string>
+
+    <string name="tips">Temukan rekomendasi makanan sesuai dengan preferensimu!</string>
 </resources>

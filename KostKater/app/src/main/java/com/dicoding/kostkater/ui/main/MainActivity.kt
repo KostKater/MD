@@ -39,26 +39,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupActionBar()
         setupViewModel()
 
         val layoutManager = GridLayoutManager(this, 2)
         binding.rvRecommendation.layoutManager = layoutManager
 
-        binding.preferenceButton.setOnClickListener {
+        binding.tvPreference.setOnClickListener {
             PreferenceSheet().show(supportFragmentManager, "preferenceTag")
         }
 
         binding.budgetButton.setOnClickListener {
             FilterSheet().show(supportFragmentManager, "budgetTag")
         }
-    }
-
-    private fun setupActionBar() {
-        supportActionBar?.title = SpannableString(getString(R.string.app_name)).apply {
-            setSpan(ForegroundColorSpan(ContextCompat.getColor(this@MainActivity, R.color.black)), 0, length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        }
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, android.R.color.transparent)))
     }
 
     private fun setupViewModel() {
@@ -103,6 +95,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_preference -> {
+                PreferenceSheet().show(supportFragmentManager, "preferenceTag")
+                true
+            }
+
             R.id.action_logout -> {
                 mainViewModel.logout()
                 true
