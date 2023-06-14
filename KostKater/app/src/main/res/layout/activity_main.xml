@@ -126,30 +126,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/cv_tips"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/regenerate_button"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="22dp"
             android:textSize="@dimen/font_m"
             android:textStyle="bold"
             android:textColor="@color/eerie_black"
             android:text="@string/recommendation"
             android:layout_marginHorizontal="32dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/regenerate_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/regenerate"
-            android:textAllCaps="false"
-            android:textSize="@dimen/font_s"
-            app:strokeWidth="0dp"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_marginTop="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_tips"
-            android:drawableLeft="@drawable/refresh_18"
-            android:textColor="@color/gray"
-            app:shapeAppearanceOverlay="@style/RoundedSquare"
-            android:layout_marginHorizontal="@dimen/activity_margin"/>
 
 
         <androidx.recyclerview.widget.RecyclerView

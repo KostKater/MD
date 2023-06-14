@@ -39,7 +39,9 @@ class PreferenceSheet : BottomSheetDialogFragment() {
         )[PreferenceViewModel::class.java]
 
         preferenceViewModel.userData.observe(this) { userData ->
-            setUserData(userData)
+            if (userData != null) {
+                setUserData(userData)
+            }
         }
 
         preferenceViewModel.isLoading.observe(this) {

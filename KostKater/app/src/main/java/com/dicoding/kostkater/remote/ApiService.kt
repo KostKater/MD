@@ -20,7 +20,7 @@ interface ApiService {
     @GET("meals/recommend")
     fun getRecommendation(): Call<MealsResponse>
 
-    @GET("meals/recommend")
+    @GET("meals/all")
     fun getAllMeal(): Call<MealsResponse>
 
     @GET("user/data")

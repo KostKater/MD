@@ -66,11 +66,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainViewModel.recommendation.observe(this) { recommendations ->
-            setRecommendationData(recommendations)
+            if (recommendations != null) {
+                setRecommendationData(recommendations)
+            }
         }
 
         mainViewModel.allMeal.observe(this) { meals ->
-            setAllMealData(meals)
+            if (meals != null) {
+                setAllMealData(meals)
+            }
         }
 
         mainViewModel.isLoading.observe(this) {

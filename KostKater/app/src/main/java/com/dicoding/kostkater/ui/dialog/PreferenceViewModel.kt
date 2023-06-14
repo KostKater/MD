@@ -18,8 +18,8 @@ import retrofit2.Response
 
 class PreferenceViewModel(private val pref: UserPreference) : ViewModel() {
 
-    private val _userData = MutableLiveData<Data>()
-    val userData: LiveData<Data> = _userData
+    private val _userData = MutableLiveData<Data?>()
+    val userData: MutableLiveData<Data?> = _userData
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading

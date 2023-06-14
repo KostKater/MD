@@ -19,14 +19,14 @@ import retrofit2.Response
 
 class MainViewModel(private val pref: UserPreference): ViewModel() {
 
-    private val _recommendation = MutableLiveData<List<DataItem?>>()
-    val recommendation: LiveData<List<DataItem?>> = _recommendation
+    private val _recommendation = MutableLiveData<List<DataItem?>?>()
+    val recommendation: MutableLiveData<List<DataItem?>?> = _recommendation
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _allMeal = MutableLiveData<List<DataItem?>>()
-    val allMeal: LiveData<List<DataItem?>> = _allMeal
+    private val _allMeal = MutableLiveData<List<DataItem?>?>()
+    val allMeal: MutableLiveData<List<DataItem?>?> = _allMeal
 
     private val _isLoading2 = MutableLiveData<Boolean>()
     val isLoading2: LiveData<Boolean> = _isLoading2
@@ -72,7 +72,7 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
         })
     }
 
-    fun getAllMeal(token: String) {
+    private fun getAllMeal(token: String) {
         _isLoading2.value = true
         val client = ApiConfig.getApiService(token).getAllMeal()
         client.enqueue(object : Callback<MealsResponse> {
