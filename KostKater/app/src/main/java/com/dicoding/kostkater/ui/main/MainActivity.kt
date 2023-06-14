@@ -2,7 +2,6 @@ package com.dicoding.kostkater.ui.main
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -13,21 +12,18 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.kostkater.R
-import com.dicoding.kostkater.adapter.RecommendationAdapter
+import com.dicoding.kostkater.adapter.MealAdapter
 import com.dicoding.kostkater.databinding.ActivityMainBinding
-import com.dicoding.kostkater.model.Meal
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.DataItem
 import com.dicoding.kostkater.ui.ViewModelFactory
 import com.dicoding.kostkater.ui.dialog.FilterSheet
-import com.dicoding.kostkater.ui.dialog.PreferenceSheet
 import com.dicoding.kostkater.ui.welcome.WelcomeActivity
 import java.util.Calendar
 
@@ -46,15 +42,14 @@ class MainActivity : AppCompatActivity() {
         setGreeting()
         setupViewModel()
 
-        val layoutManager = GridLayoutManager(this, 2)
-        binding.rvRecommendation.layoutManager = layoutManager
+        val layoutManager1 = GridLayoutManager(this, 2)
+        binding.rvRecommendation.layoutManager = layoutManager1
 
-        binding.tvPreference.setOnClickListener {
-            PreferenceSheet().show(supportFragmentManager, "preferenceTag")
-        }
+        val layoutManager2 = GridLayoutManager(this, 2)
+        binding.rvAllMeals.layoutManager = layoutManager2
 
-        binding.budgetButton.setOnClickListener {
-            FilterSheet().show(supportFragmentManager, "budgetTag")
+        binding.cvTips.setOnClickListener {
+            FilterSheet().show(supportFragmentManager, "preferenceTag")
         }
     }
 
@@ -70,25 +65,46 @@ class MainActivity : AppCompatActivity() {
             tokenString = token
         }
 
-        mainViewModel.meals.observe(this) { recommendations ->
+        mainViewModel.recommendation.observe(this) { recommendations ->
             setRecommendationData(recommendations)
         }
 
+        mainViewModel.allMeal.observe(this) { meals ->
+            setAllMealData(meals)
+        }
+
         mainViewModel.isLoading.observe(this) {
-            showLoading(it)
+            showLoading(it, 1)
+        }
+
+        mainViewModel.isLoading2.observe(this) {
+            showLoading(it, 2)
         }
     }
 
     private fun setRecommendationData(meals: List<DataItem?>) {
-        val adapter = RecommendationAdapter(meals)
+        val adapter = MealAdapter(meals)
         binding.rvRecommendation.adapter = adapter
     }
 
-    private fun showLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
+    private fun setAllMealData(meals: List<DataItem?>) {
+        val adapter = MealAdapter(meals)
+        binding.rvAllMeals.adapter = adapter
+    }
+
+    private fun showLoading(isLoading: Boolean, progressBar: Int) {
+        if (progressBar == 1) {
+            if (isLoading) {
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.visibility = View.GONE
+            }
         } else {
-            binding.progressBar.visibility = View.GONE
+            if (isLoading) {
+                binding.progressBar2.visibility = View.VISIBLE
+            } else {
+                binding.progressBar2.visibility = View.GONE
+            }
         }
     }
 
@@ -100,11 +116,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_preference -> {
-                PreferenceSheet().show(supportFragmentManager, "preferenceTag")
-                true
-            }
-
             R.id.action_logout -> {
                 AlertDialog.Builder(this).apply {
                     setTitle(getString(R.string.logout_confirm))

@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ItemRecommendationBinding
-import com.dicoding.kostkater.model.Meal
 import com.dicoding.kostkater.model.meals.DataItem
 import com.dicoding.kostkater.ui.detail.DetailActivity
 
-class RecommendationAdapter(private val listMeal: List<DataItem?>) : RecyclerView.Adapter<RecommendationAdapter.ViewHolder>() {
+class MealAdapter(private val listMeal: List<DataItem?>) : RecyclerView.Adapter<MealAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -31,6 +31,7 @@ class RecommendationAdapter(private val listMeal: List<DataItem?>) : RecyclerVie
                 meal.run {
                     binding.tvItemName.text = name
                     binding.tvItemPrice.text = harga
+                    binding.tvHalal.text = if (kehalalan == true) "Halal" else "Non-halal"
 
                     Glide.with(binding.root.context)
                         .load(imgUrl)

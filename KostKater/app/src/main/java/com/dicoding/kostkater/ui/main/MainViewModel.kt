@@ -19,17 +19,24 @@ import retrofit2.Response
 
 class MainViewModel(private val pref: UserPreference): ViewModel() {
 
-    private val _meals = MutableLiveData<List<DataItem?>>()
-    val meals: LiveData<List<DataItem?>> = _meals
+    private val _recommendation = MutableLiveData<List<DataItem?>>()
+    val recommendation: LiveData<List<DataItem?>> = _recommendation
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _allMeal = MutableLiveData<List<DataItem?>>()
+    val allMeal: LiveData<List<DataItem?>> = _allMeal
+
+    private val _isLoading2 = MutableLiveData<Boolean>()
+    val isLoading2: LiveData<Boolean> = _isLoading2
 
     init {
         viewModelScope.launch {
             pref.token.onEach {
                 if (it.isNotEmpty()) {
-                    getMeals(it)
+                    getRecommendation(it)
+                    getAllMeal(it)
                 }
             }.collect()
         }
@@ -45,14 +52,14 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
         }
     }
 
-    private fun getMeals(token: String) {
+    private fun getRecommendation(token: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService(token).getRecommendation()
         client.enqueue(object : Callback<MealsResponse> {
             override fun onResponse(call: Call<MealsResponse>, response: Response<MealsResponse>) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    _meals.value = response.body()?.data
+                    _recommendation.value = response.body()?.data
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
@@ -62,7 +69,26 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message}")
             }
+        })
+    }
 
+    private fun getAllMeal(token: String) {
+        _isLoading2.value = true
+        val client = ApiConfig.getApiService(token).getAllMeal()
+        client.enqueue(object : Callback<MealsResponse> {
+            override fun onResponse(call: Call<MealsResponse>, response: Response<MealsResponse>) {
+                _isLoading2.value = false
+                if (response.isSuccessful) {
+                    _allMeal.value = response.body()?.data
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<MealsResponse>, t: Throwable) {
+                _isLoading2.value = false
+                Log.e(TAG, "onFailure: ${t.message}")
+            }
         })
     }
 

@@ -18,4 +18,7 @@ interface ApiService {
 
     @GET("meals/recommend")
     fun getRecommendation(): Call<MealsResponse>
+
+    @GET("meals/recommend")
+    fun getAllMeal(): Call<MealsResponse>
 }

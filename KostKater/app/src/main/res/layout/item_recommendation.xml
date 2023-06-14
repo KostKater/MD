@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
             android:textSize="@dimen/font_xs"
             android:textStyle="bold"
             android:textColor="@color/hunter_green"
@@ -53,6 +54,20 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="@dimen/card_recommendation_margin"
             tools:text="Rp25.000" />
+
+        <TextView
+            android:id="@+id/tv_halal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/font_xs"
+            android:textStyle="bold"
+            android:textColor="@color/eerie_black"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="2dp"
+            tools:text="Halal"
+            android:background="@drawable/back"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

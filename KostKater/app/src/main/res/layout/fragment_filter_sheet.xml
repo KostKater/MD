@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/filter"
+        android:text="@string/set_preference"
         android:textSize="@dimen/font_xl"
         android:textStyle="bold"
         android:textColor="@color/eerie_black"
@@ -117,7 +117,7 @@
             android:id="@+id/input_ingredient"
             android:inputType="textMultiLine"
             android:gravity="start|top"
-            android:minLines="5" />
+            android:minLines="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
