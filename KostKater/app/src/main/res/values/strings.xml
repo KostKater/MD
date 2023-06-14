@@ -4,8 +4,6 @@
     <string name="title_meal_plan">Meal Plan</string>
     <string name="logout">Keluar</string>
 
-    <string name="banner_title">Makan apa hari ini?</string>
-    <string name="banner_subtitle">Yuk, atur preferensi dulu agar\nrekomendasi kamu lebih maksimal!</string>
     <string name="set_preference">Ubah Preferensi</string>
     <string name="recommendation">Rekomendasi untukmu</string>
     <string name="regenerate">Regenerate</string>
@@ -35,7 +33,6 @@
     <string name="save">Simpan</string>
 
     <string name="price">Harga</string>
-    <string name="apply">Terapkan</string>
     <string name="welcome_back">Selamat datang kembali!</string>
     <string name="welcome">Selamat datang!</string>
 
@@ -53,4 +50,13 @@
     <string name="ingredient">Bahan makanan</string>
 
     <string name="all_meals">Eksplor lebih banyak menu</string>
+    <string name="allergy">Alergi</string>
+    <string name="egg">Telur</string>
+    <string name="peanut">Kacang</string>
+    <string name="soybean">Kedelai</string>
+    <string name="seafood">Seafood</string>
+    <string name="shrimp">Udang</string>
+    <string name="milk">Susu</string>
+    <string name="wheat">Gandum</string>
+    <string name="halal">Halal</string>
 </resources>

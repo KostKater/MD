@@ -54,7 +54,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/eerie_black"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tv_halal"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Sup Ayam Klaten" />
 
@@ -83,6 +83,20 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
                         tools:text="Rp25.000" />
+
+                    <TextView
+                        android:id="@+id/tv_halal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="@dimen/font_xs"
+                        android:textStyle="bold"
+                        android:textColor="@color/eerie_black"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="2dp"
+                        tools:text="Halal"
+                        android:background="@drawable/back"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -376,7 +390,6 @@
         android:layout_marginBottom="@dimen/activity_margin"
         android:layout_marginHorizontal="@dimen/activity_margin"
         android:paddingVertical="@dimen/button_vertical_padding"
-        android:backgroundTint="@color/black"
         app:shapeAppearanceOverlay="@style/RoundedSquare"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

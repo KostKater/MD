@@ -72,7 +72,7 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
         })
     }
 
-    private fun getAllMeal(token: String) {
+    fun getAllMeal(token: String) {
         _isLoading2.value = true
         val client = ApiConfig.getApiService(token).getAllMeal()
         client.enqueue(object : Callback<MealsResponse> {

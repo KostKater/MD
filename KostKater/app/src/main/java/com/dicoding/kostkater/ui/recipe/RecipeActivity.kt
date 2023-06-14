@@ -12,8 +12,7 @@ import com.dicoding.kostkater.R
 import com.dicoding.kostkater.adapter.IngredientAdapter
 import com.dicoding.kostkater.adapter.InstructionAdapter
 import com.dicoding.kostkater.databinding.ActivityRecipeBinding
-import com.dicoding.kostkater.model.Meal
-import com.dicoding.kostkater.ui.detail.DetailActivity
+import com.dicoding.kostkater.model.meals.DataItem
 
 class RecipeActivity : AppCompatActivity() {
 
@@ -40,7 +39,7 @@ class RecipeActivity : AppCompatActivity() {
 
     private fun setRecipeInfo() {
         val meal = if (Build.VERSION.SDK_INT >= 33) {
-            intent.getParcelableExtra(EXTRA_MEAL, Meal::class.java)
+            intent.getParcelableExtra(EXTRA_MEAL, DataItem::class.java)
         } else {
             @Suppress("DEPRECATION")
             intent.getParcelableExtra(EXTRA_MEAL)
@@ -50,7 +49,7 @@ class RecipeActivity : AppCompatActivity() {
             binding.tvRecipeName.text = meal.name
 
             Glide.with(this)
-                .load(meal.photoUrl)
+                .load(meal.imgUrl)
                 .into(binding.ivRecipePhoto)
         }
     }

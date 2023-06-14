@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dicoding.kostkater.R
-import com.dicoding.kostkater.databinding.FragmentFilterSheetBinding
+import com.dicoding.kostkater.databinding.FragmentPreferenceSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class FilterSheet : BottomSheetDialogFragment() {
+class PreferenceSheet : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentFilterSheetBinding
+    private lateinit var binding: FragmentPreferenceSheetBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class FilterSheet : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentFilterSheetBinding.inflate(inflater, container, false)
+        binding = FragmentPreferenceSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 

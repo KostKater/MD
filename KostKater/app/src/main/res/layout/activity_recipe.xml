@@ -65,15 +65,28 @@
                     android:padding="@dimen/big_card_padding">
 
                     <TextView
-                        android:id="@+id/tv_ingredients"
+                        android:id="@+id/tv_recipe_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/font_xl"
                         android:textStyle="bold"
                         android:textColor="@color/eerie_black"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="Sup Ayam Klaten" />
+
+                    <TextView
+                        android:id="@+id/tv_ingredients"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_l"
+                        android:textStyle="bold"
+                        android:textColor="@color/eerie_black"
+                        app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
                         tools:text="@string/ingredients"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -147,23 +160,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:visibility="visible" />
-
-            <TextView
-                android:id="@+id/tv_recipe_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:textSize="@dimen/font_xl"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                android:gravity="end"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Sup Ayam Klaten"
-                android:elevation="10dp"
-                android:layout_margin="@dimen/activity_margin"
-                android:layout_marginLeft="100dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

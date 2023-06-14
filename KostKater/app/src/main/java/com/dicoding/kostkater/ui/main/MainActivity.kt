@@ -23,7 +23,7 @@ import com.dicoding.kostkater.databinding.ActivityMainBinding
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.DataItem
 import com.dicoding.kostkater.ui.ViewModelFactory
-import com.dicoding.kostkater.ui.dialog.FilterSheet
+import com.dicoding.kostkater.ui.dialog.PreferenceSheet
 import com.dicoding.kostkater.ui.welcome.WelcomeActivity
 import java.util.Calendar
 
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         binding.rvAllMeals.layoutManager = layoutManager2
 
         binding.cvTips.setOnClickListener {
-            FilterSheet().show(supportFragmentManager, "preferenceTag")
+            PreferenceSheet().show(supportFragmentManager, "preferenceTag")
         }
     }
 

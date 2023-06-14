@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.bumptech.glide.Glide
-import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ActivityDetailBinding
-import com.dicoding.kostkater.model.Meal
 import com.dicoding.kostkater.model.meals.DataItem
 import com.dicoding.kostkater.ui.recipe.RecipeActivity
 
@@ -44,6 +42,7 @@ class DetailActivity : AppCompatActivity() {
                 .into(binding.ivDetailPhoto)
 
             binding.tvDetailName.text = meal.name
+            binding.tvHalal.text = if (meal.kehalalan == true) "Halal" else "Non-halal"
             binding.tvDetailDescription.text = meal.deskripsi
             binding.tvDetailPrice.text = meal.harga
             binding.tvCalorieValue.text = meal.nutrisi?.kalori.toString() + "kal"
