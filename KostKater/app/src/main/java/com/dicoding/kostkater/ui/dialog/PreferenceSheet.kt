@@ -2,6 +2,7 @@ package com.dicoding.kostkater.ui.dialog
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.FragmentPreferenceSheetBinding
 import com.dicoding.kostkater.model.UserPreference
+import com.dicoding.kostkater.model.user.Data
 import com.dicoding.kostkater.ui.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -35,6 +37,36 @@ class PreferenceSheet : BottomSheetDialogFragment() {
             this,
             ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
         )[PreferenceViewModel::class.java]
+
+        preferenceViewModel.userData.observe(this) { userData ->
+            setUserData(userData)
+        }
+
+        preferenceViewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
+    }
+
+    private fun setUserData(userData: Data) {
+        binding.switchHalal.isChecked = userData.eatHalal
+        for (allergy in userData.allergies) {
+            val allergyString = allergy.toString()
+            if (allergyString == "Telur") binding.checkboxEgg.isChecked = true
+            if (allergyString == "Kacang") binding.checkboxPeanut.isChecked = true
+            if (allergyString == "Kedelai") binding.checkboxSoybean.isChecked = true
+            if (allergyString == "Seafood") binding.checkboxSeafood.isChecked = true
+            if (allergyString == "Shrimp") binding.checkboxShrimp.isChecked = true
+            if (allergyString == "Susu") binding.checkboxMilk.isChecked = true
+            if (allergyString == "Gandum") binding.checkboxWheat.isChecked = true
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
     private fun setupAction() {
@@ -50,32 +82,18 @@ class PreferenceSheet : BottomSheetDialogFragment() {
             val milkAllergic = binding.checkboxMilk
             val wheatAllergic = binding.checkboxWheat
 
-            if (eggAllergic.isChecked) {
-                allergies.add(eggAllergic.text.toString())
-            }
-            if (peanutAllergic.isChecked) {
-                allergies.add(peanutAllergic.text.toString())
-            }
-            if (soybeanAllergic.isChecked) {
-                allergies.add(soybeanAllergic.text.toString())
-            }
-            if (seafoodAllergic.isChecked) {
-                allergies.add(seafoodAllergic.text.toString())
-            }
-            if (shrimpAllergic.isChecked) {
-                allergies.add(shrimpAllergic.text.toString())
-            }
-            if (milkAllergic.isChecked) {
-                allergies.add(milkAllergic.text.toString())
-            }
-            if (wheatAllergic.isChecked) {
-                allergies.add(wheatAllergic.text.toString())
-            }
+            if (eggAllergic.isChecked) allergies.add(eggAllergic.text.toString())
+            if (peanutAllergic.isChecked) allergies.add(peanutAllergic.text.toString())
+            if (soybeanAllergic.isChecked) allergies.add(soybeanAllergic.text.toString())
+            if (seafoodAllergic.isChecked) allergies.add(seafoodAllergic.text.toString())
+            if (shrimpAllergic.isChecked) allergies.add(shrimpAllergic.text.toString())
+            if (milkAllergic.isChecked) allergies.add(milkAllergic.text.toString())
+            if (wheatAllergic.isChecked) allergies.add(wheatAllergic.text.toString())
 
             val priceMinString = binding.inputMinPrice.text.toString()
-            val priceMin = if (priceMinString.isEmpty()) null else priceMinString.toInt()
+            val priceMin = if (priceMinString.isEmpty()) 0 else priceMinString.toInt()
             val priceMaxString = binding.inputMaxPrice.text.toString()
-            val priceMax = if (priceMaxString.isEmpty()) null else priceMaxString.toInt()
+            val priceMax = if (priceMaxString.isEmpty()) 999999999 else priceMaxString.toInt()
 
             val ingredients = binding.inputIngredient.text.toString()
             val listIngredient = ingredients.split(Regex(",(?=\\s*\\w)"))
