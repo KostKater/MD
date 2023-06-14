@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ActivityDetailBinding
 import com.dicoding.kostkater.model.Meal
+import com.dicoding.kostkater.model.meals.DataItem
 import com.dicoding.kostkater.ui.recipe.RecipeActivity
 
 class DetailActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setDetailData() {
         val meal = if (Build.VERSION.SDK_INT >= 33) {
-            intent.getParcelableExtra(EXTRA_MEAL, Meal::class.java)
+            intent.getParcelableExtra(EXTRA_MEAL, DataItem::class.java)
         } else {
             @Suppress("DEPRECATION")
             intent.getParcelableExtra(EXTRA_MEAL)
@@ -39,16 +40,16 @@ class DetailActivity : AppCompatActivity() {
 
         if (meal != null) {
             Glide.with(this)
-                .load(meal.photoUrl)
+                .load(meal.imgUrl)
                 .into(binding.ivDetailPhoto)
 
             binding.tvDetailName.text = meal.name
-            binding.tvDetailDescription.text = meal.description
-            binding.tvDetailPrice.text = meal.price
-            binding.tvCalorieValue.text = meal.calorie
-            binding.tvCarboValue.text = meal.carbo
-            binding.tvProteinValue.text = meal.protein
-            binding.tvFatValue.text = meal.fat
+            binding.tvDetailDescription.text = meal.deskripsi
+            binding.tvDetailPrice.text = meal.harga
+            binding.tvCalorieValue.text = meal.nutrisi?.kalori.toString() + "kal"
+            binding.tvCarboValue.text = meal.nutrisi?.karbohidrat.toString() + "g"
+            binding.tvProteinValue.text = meal.nutrisi?.protein.toString() +"g"
+            binding.tvFatValue.text = meal.nutrisi?.lemak.toString() + "g"
 
             binding.recipeButton.setOnClickListener {
                 val moveWithObjectIntent = Intent(this, RecipeActivity::class.java)

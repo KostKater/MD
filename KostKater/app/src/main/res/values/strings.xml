@@ -7,7 +7,7 @@
     <string name="banner_title">Makan apa hari ini?</string>
     <string name="banner_subtitle">Yuk, atur preferensi dulu agar\nrekomendasi kamu lebih maksimal!</string>
     <string name="set_preference">Atur Preferensi</string>
-    <string name="recommendation">Rekomendasi Menu</string>
+    <string name="recommendation">Rekomendasi Untukmu</string>
     <string name="filter">Filter</string>
 
     <string name="back">Kembali</string>
@@ -51,4 +51,6 @@
 
     <string name="what_to_eat">Mau makan apa\nhari ini?</string>
     <string name="ingredient">Bahan makanan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

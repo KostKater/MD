@@ -24,6 +24,7 @@ import com.dicoding.kostkater.adapter.RecommendationAdapter
 import com.dicoding.kostkater.databinding.ActivityMainBinding
 import com.dicoding.kostkater.model.Meal
 import com.dicoding.kostkater.model.UserPreference
+import com.dicoding.kostkater.model.meals.DataItem
 import com.dicoding.kostkater.ui.ViewModelFactory
 import com.dicoding.kostkater.ui.dialog.FilterSheet
 import com.dicoding.kostkater.ui.dialog.PreferenceSheet
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setRecommendationData(meals: List<Meal>) {
+    private fun setRecommendationData(meals: List<DataItem?>) {
         val adapter = RecommendationAdapter(meals)
         binding.rvRecommendation.adapter = adapter
     }

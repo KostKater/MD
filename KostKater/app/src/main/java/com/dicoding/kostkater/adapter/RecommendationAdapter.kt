@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.databinding.ItemRecommendationBinding
 import com.dicoding.kostkater.model.Meal
+import com.dicoding.kostkater.model.meals.DataItem
 import com.dicoding.kostkater.ui.detail.DetailActivity
 
-class RecommendationAdapter(private val listMeal: List<Meal>) : RecyclerView.Adapter<RecommendationAdapter.ViewHolder>() {
+class RecommendationAdapter(private val listMeal: List<DataItem?>) : RecyclerView.Adapter<RecommendationAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -19,20 +20,20 @@ class RecommendationAdapter(private val listMeal: List<Meal>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listMeal[position])
+        listMeal[position]?.let { holder.bind(it) }
     }
 
     override fun getItemCount() = listMeal.size
 
     class ViewHolder(private val binding: ItemRecommendationBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            internal fun bind(meal: Meal) {
+            internal fun bind(meal: DataItem) {
                 meal.run {
                     binding.tvItemName.text = name
-                    binding.tvItemPrice.text = price
+                    binding.tvItemPrice.text = harga
 
                     Glide.with(binding.root.context)
-                        .load(photoUrl)
+                        .load(imgUrl)
                         .into(binding.ivItemPhoto)
 
                     binding.root.setOnClickListener {
