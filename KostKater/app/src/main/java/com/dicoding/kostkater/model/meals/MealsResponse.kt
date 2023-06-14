@@ -61,3 +61,8 @@ data class Nutrisi(
 	@field:SerializedName("lemak")
 	val lemak: Int? = null
 ) : Parcelable
+
+data class Recipes(
+	val ingredients: List<String>,
+	val instructions: List<String>,
+)
