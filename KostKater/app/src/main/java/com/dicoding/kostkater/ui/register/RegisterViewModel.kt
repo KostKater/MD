@@ -42,19 +42,13 @@ class RegisterViewModel(private val pref: UserPreference) : ViewModel() {
                     _registerResponse.value = response.body()
                     response.body()?.userInfo?.let { saveToken(it.token) }
                 } else {
-                    _registerResponse.value = RegisterResponse(
-                            UserInfo("",""),
-                            "Gagal mendaftar"
-                        )
+                    _registerResponse.value = response.body()
                 }
             }
 
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 _isLoading.value = false
-                _registerResponse.value = RegisterResponse(
-                    UserInfo("",""),
-                    "Gagal mendaftar"
-                )
+                _registerResponse.value = RegisterResponse(null, "Network error", true)
             }
         })
     }

@@ -60,7 +60,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         registerViewModel.registerResponse.observe(this) { registerResponse ->
-            if (registerResponse.userInfo.token.isEmpty()) {
+            if (registerResponse.userInfo == null) {
                 showAlertDialog("Oops!", registerResponse.message, false)
                 return@observe
             }

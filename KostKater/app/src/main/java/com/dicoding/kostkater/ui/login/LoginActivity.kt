@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginViewModel.loginResponse.observe(this) { loginResponse ->
-            if (loginResponse.userInfo.token.isEmpty()) {
+            if (loginResponse.userInfo == null) {
                 showAlertDialog("Oops!", loginResponse.message, false)
                 return@observe
             }

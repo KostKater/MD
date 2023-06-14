@@ -39,19 +39,13 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
                     _loginResponse.value = response.body()
                     response.body()?.userInfo?.let { saveToken(it.token) }
                 } else {
-                    _loginResponse.value = LoginResponse(
-                        UserInfo("", ""),
-                        "Login gagal"
-                    )
+                    _loginResponse.value = response.body()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 _isLoading.value = false
-                _loginResponse.value = LoginResponse(
-                    UserInfo("", ""),
-                    "Login gagal"
-                )
+                _loginResponse.value = LoginResponse(null, true, "Network error")
             }
         })
     }
