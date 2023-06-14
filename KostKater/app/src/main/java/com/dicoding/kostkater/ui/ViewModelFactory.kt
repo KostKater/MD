@@ -7,9 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kostkater.ui.dialog.PreferenceViewModel
 import com.dicoding.kostkater.ui.login.LoginViewModel
+import com.dicoding.kostkater.ui.recipe.RecipeViewModel
 import com.dicoding.kostkater.ui.register.RegisterViewModel
 
-class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val pref: UserPreference, private val string: String?) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -28,6 +29,10 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
 
             modelClass.isAssignableFrom(PreferenceViewModel::class.java) -> {
                 PreferenceViewModel(pref) as T
+            }
+
+            modelClass.isAssignableFrom(RecipeViewModel::class.java) -> {
+                string?.let { RecipeViewModel(pref, it) } as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

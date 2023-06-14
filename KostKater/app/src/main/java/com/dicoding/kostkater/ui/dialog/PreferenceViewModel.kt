@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
-import com.dicoding.kostkater.model.user.Data
+import com.dicoding.kostkater.model.user.Preference
 import com.dicoding.kostkater.model.user.UserResponse
 import com.dicoding.kostkater.remote.ApiConfig
 import kotlinx.coroutines.flow.collect
@@ -18,8 +18,8 @@ import retrofit2.Response
 
 class PreferenceViewModel(private val pref: UserPreference) : ViewModel() {
 
-    private val _userData = MutableLiveData<Data?>()
-    val userData: MutableLiveData<Data?> = _userData
+    private val _userPreference = MutableLiveData<Preference?>()
+    val userPreference: MutableLiveData<Preference?> = _userPreference
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -41,7 +41,7 @@ class PreferenceViewModel(private val pref: UserPreference) : ViewModel() {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    _userData.value = response.body()?.data
+                    _userPreference.value = response.body()?.preference
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }

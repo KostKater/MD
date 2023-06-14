@@ -56,7 +56,8 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/tv_halal"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Sup Ayam Klaten" />
+                        tools:text="Sup Ayam Klaten"
+                        android:layout_marginRight="10dp"/>
 
                     <TextView
                         android:id="@+id/tv_detail_description"
@@ -96,7 +97,7 @@
                         android:paddingHorizontal="20dp"
                         android:paddingVertical="2dp"
                         tools:text="Halal"
-                        android:background="@drawable/back"/>
+                        android:background="@drawable/back" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

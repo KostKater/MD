@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.databinding.ActivityDetailBinding
-import com.dicoding.kostkater.model.meals.DataItem
+import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.recipe.RecipeActivity
 
 class DetailActivity : AppCompatActivity() {
@@ -30,7 +30,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setDetailData() {
         val meal = if (Build.VERSION.SDK_INT >= 33) {
-            intent.getParcelableExtra(EXTRA_MEAL, DataItem::class.java)
+            intent.getParcelableExtra(EXTRA_MEAL, Meal::class.java)
         } else {
             @Suppress("DEPRECATION")
             intent.getParcelableExtra(EXTRA_MEAL)

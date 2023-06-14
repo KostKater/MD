@@ -4,11 +4,13 @@ import com.dicoding.kostkater.model.auth.AuthRequest
 import com.dicoding.kostkater.model.auth.LoginResponse
 import com.dicoding.kostkater.model.auth.RegisterResponse
 import com.dicoding.kostkater.model.meals.MealsResponse
+import com.dicoding.kostkater.model.meals.RecipeResponse
 import com.dicoding.kostkater.model.user.UserResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiService {
     @POST("register")
@@ -25,4 +27,9 @@ interface ApiService {
 
     @GET("user/data")
     fun getUserData(): Call<UserResponse>
+
+    @GET("recipe")
+    fun getRecipe(
+        @Query("name") name: String
+    ): Call<RecipeResponse>
 }

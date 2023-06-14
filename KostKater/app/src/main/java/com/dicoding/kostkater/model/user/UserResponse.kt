@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class UserResponse(
 
 	@field:SerializedName("data")
-	val data: Data?
+	val preference: Preference?
 )
 
-data class Data(
+data class Preference(
 
 	@field:SerializedName("allergies")
 	val allergies: List<String>,

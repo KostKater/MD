@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
-import com.dicoding.kostkater.model.meals.DataItem
+import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.model.meals.MealsResponse
 import com.dicoding.kostkater.remote.ApiConfig
 import kotlinx.coroutines.flow.collect
@@ -19,14 +19,14 @@ import retrofit2.Response
 
 class MainViewModel(private val pref: UserPreference): ViewModel() {
 
-    private val _recommendation = MutableLiveData<List<DataItem?>?>()
-    val recommendation: MutableLiveData<List<DataItem?>?> = _recommendation
+    private val _recommendation = MutableLiveData<List<Meal?>?>()
+    val recommendation: MutableLiveData<List<Meal?>?> = _recommendation
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _allMeal = MutableLiveData<List<DataItem?>?>()
-    val allMeal: MutableLiveData<List<DataItem?>?> = _allMeal
+    private val _allMeal = MutableLiveData<List<Meal?>?>()
+    val allMeal: MutableLiveData<List<Meal?>?> = _allMeal
 
     private val _isLoading2 = MutableLiveData<Boolean>()
     val isLoading2: LiveData<Boolean> = _isLoading2

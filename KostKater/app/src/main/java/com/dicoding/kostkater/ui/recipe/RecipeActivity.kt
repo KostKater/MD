@@ -1,10 +1,14 @@
 package com.dicoding.kostkater.ui.recipe
 
+import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -12,7 +16,11 @@ import com.dicoding.kostkater.R
 import com.dicoding.kostkater.adapter.IngredientAdapter
 import com.dicoding.kostkater.adapter.InstructionAdapter
 import com.dicoding.kostkater.databinding.ActivityRecipeBinding
-import com.dicoding.kostkater.model.meals.DataItem
+import com.dicoding.kostkater.model.UserPreference
+import com.dicoding.kostkater.model.meals.Meal
+import com.dicoding.kostkater.ui.ViewModelFactory
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class RecipeActivity : AppCompatActivity() {
 
@@ -31,7 +39,6 @@ class RecipeActivity : AppCompatActivity() {
         }
 
         setRecipeInfo()
-        setupViewModel()
 
         binding.rvIngredients.layoutManager = LinearLayoutManager(this)
         binding.rvInstructions.layoutManager = LinearLayoutManager(this)
@@ -39,7 +46,7 @@ class RecipeActivity : AppCompatActivity() {
 
     private fun setRecipeInfo() {
         val meal = if (Build.VERSION.SDK_INT >= 33) {
-            intent.getParcelableExtra(EXTRA_MEAL, DataItem::class.java)
+            intent.getParcelableExtra(EXTRA_MEAL, Meal::class.java)
         } else {
             @Suppress("DEPRECATION")
             intent.getParcelableExtra(EXTRA_MEAL)
@@ -51,15 +58,21 @@ class RecipeActivity : AppCompatActivity() {
             Glide.with(this)
                 .load(meal.imgUrl)
                 .into(binding.ivRecipePhoto)
+
+            setupViewModel(meal.name)
         }
     }
 
-    private fun setupViewModel() {
-        recipeViewModel = ViewModelProvider(this)[RecipeViewModel::class.java]
+    private fun setupViewModel(mealName: String) {
+        recipeViewModel = ViewModelProvider(this, ViewModelFactory(UserPreference.getInstance(dataStore), mealName))[RecipeViewModel::class.java]
 
         recipeViewModel.recipe.observe(this) { recipe ->
-            setIngredientData(recipe.ingredients)
-            setInstructionData(recipe.instructions)
+            if (recipe != null) {
+                setIngredientData(recipe.ingredients)
+            }
+            if (recipe != null) {
+                setInstructionData(recipe.instructions)
+            }
         }
 
         recipeViewModel.isLoading.observe(this) {

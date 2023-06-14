@@ -2,7 +2,6 @@ package com.dicoding.kostkater.ui.dialog
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.FragmentPreferenceSheetBinding
 import com.dicoding.kostkater.model.UserPreference
-import com.dicoding.kostkater.model.user.Data
+import com.dicoding.kostkater.model.user.Preference
 import com.dicoding.kostkater.ui.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -35,10 +34,10 @@ class PreferenceSheet : BottomSheetDialogFragment() {
     private fun setupViewModel() {
         preferenceViewModel = ViewModelProvider(
             this,
-            ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
+            ViewModelFactory(UserPreference.getInstance(requireContext().dataStore), null)
         )[PreferenceViewModel::class.java]
 
-        preferenceViewModel.userData.observe(this) { userData ->
+        preferenceViewModel.userPreference.observe(this) { userData ->
             if (userData != null) {
                 setUserData(userData)
             }
@@ -49,9 +48,9 @@ class PreferenceSheet : BottomSheetDialogFragment() {
         }
     }
 
-    private fun setUserData(userData: Data) {
-        binding.switchHalal.isChecked = userData.eatHalal
-        for (allergy in userData.allergies) {
+    private fun setUserData(userPreference: Preference) {
+        binding.switchHalal.isChecked = userPreference.eatHalal
+        for (allergy in userPreference.allergies) {
             val allergyString = allergy.toString()
             if (allergyString == "Telur") binding.checkboxEgg.isChecked = true
             if (allergyString == "Kacang") binding.checkboxPeanut.isChecked = true

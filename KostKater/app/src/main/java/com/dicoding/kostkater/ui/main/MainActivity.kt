@@ -21,7 +21,7 @@ import com.dicoding.kostkater.R
 import com.dicoding.kostkater.adapter.MealAdapter
 import com.dicoding.kostkater.databinding.ActivityMainBinding
 import com.dicoding.kostkater.model.UserPreference
-import com.dicoding.kostkater.model.meals.DataItem
+import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.ViewModelFactory
 import com.dicoding.kostkater.ui.dialog.PreferenceSheet
 import com.dicoding.kostkater.ui.welcome.WelcomeActivity
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        mainViewModel = ViewModelProvider(this, ViewModelFactory(UserPreference.getInstance(dataStore)))[MainViewModel::class.java]
+        mainViewModel = ViewModelProvider(this, ViewModelFactory(UserPreference.getInstance(dataStore), null))[MainViewModel::class.java]
 
         mainViewModel.getToken().observe(this) { token ->
             if (token.isEmpty()) {
@@ -86,12 +86,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setRecommendationData(meals: List<DataItem?>) {
+    private fun setRecommendationData(meals: List<Meal?>) {
         val adapter = MealAdapter(meals)
         binding.rvRecommendation.adapter = adapter
     }
 
-    private fun setAllMealData(meals: List<DataItem?>) {
+    private fun setAllMealData(meals: List<Meal?>) {
         val adapter = MealAdapter(meals)
         binding.rvAllMeals.adapter = adapter
     }
