@@ -60,6 +60,10 @@ class PreferenceSheet : BottomSheetDialogFragment() {
             if (allergyString == "Susu") binding.checkboxMilk.isChecked = true
             if (allergyString == "Gandum") binding.checkboxWheat.isChecked = true
         }
+        binding.inputMinPrice.setText(userPreference.priceMin.toString())
+        binding.inputMaxPrice.setText(userPreference.priceMax.toString())
+
+        binding.inputIngredient.setText(userPreference.ingredients.joinToString(", "))
     }
 
     private fun showLoading(isLoading: Boolean) {
