@@ -3,6 +3,7 @@ package com.dicoding.kostkater.remote
 import com.dicoding.kostkater.model.auth.AuthRequest
 import com.dicoding.kostkater.model.auth.LoginResponse
 import com.dicoding.kostkater.model.auth.RegisterResponse
+import com.dicoding.kostkater.model.mealplan.MealPlanResponse
 import com.dicoding.kostkater.model.meals.MealsResponse
 import com.dicoding.kostkater.model.meals.RecipeResponse
 import com.dicoding.kostkater.model.user.PreferenceRequest
@@ -37,6 +38,6 @@ interface ApiService {
     @POST("user/data")
     fun postPreference(@Body body: PreferenceRequest): Call<PreferenceResponse>
 
-//    @GET("user/mealplan")
-//    fun getMealPlan(): Call<>
+    @GET("user/mealplan")
+    fun getMealPlan(): Call<MealPlanResponse>
 }

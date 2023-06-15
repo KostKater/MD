@@ -11,10 +11,10 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.kostkater.adapter.MealAdapter
 import com.dicoding.kostkater.adapter.MealPlanAdapter
 import com.dicoding.kostkater.databinding.ActivityMealPlanBinding
 import com.dicoding.kostkater.model.UserPreference
+import com.dicoding.kostkater.model.mealplan.MealPlan
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.ViewModelFactory
 
@@ -54,9 +54,14 @@ class MealPlanActivity : AppCompatActivity() {
         }
     }
 
-    private fun setMealPlan(mealPlan: List<Meal>) {
-        val adapter = MealPlanAdapter(mealPlan)
-        binding.rvMealplan.adapter = adapter
+    private fun setMealPlan(mealPlan: List<MealPlan>) {
+        if (mealPlan.isEmpty()) {
+            binding.tvNoPlan.visibility = View.VISIBLE
+        } else {
+            binding.tvNoPlan.visibility = View.GONE
+            val adapter = MealPlanAdapter(mealPlan)
+            binding.rvMealplan.adapter = adapter
+        }
     }
 
     private fun showLoading(isLoading: Boolean) {

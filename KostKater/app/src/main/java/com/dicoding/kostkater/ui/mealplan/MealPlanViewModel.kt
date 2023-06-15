@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
+import com.dicoding.kostkater.model.mealplan.MealPlan
+import com.dicoding.kostkater.model.mealplan.MealPlanResponse
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.model.meals.MealsResponse
 import com.dicoding.kostkater.remote.ApiConfig
@@ -19,8 +21,8 @@ class MealPlanViewModel(private val pref: UserPreference): ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _mealPlan = MutableLiveData<List<Meal>?>()
-    val mealPlan: LiveData<List<Meal>?> = _mealPlan
+    private val _mealPlan = MutableLiveData<List<MealPlan>?>()
+    val mealPlan: LiveData<List<MealPlan>?> = _mealPlan
 
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
@@ -37,9 +39,9 @@ class MealPlanViewModel(private val pref: UserPreference): ViewModel() {
 
     private fun getMealPlan(token: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService(token).getRecommendation()
-        client.enqueue(object : Callback<MealsResponse> {
-            override fun onResponse(call: Call<MealsResponse>, response: Response<MealsResponse>) {
+        val client = ApiConfig.getApiService(token).getMealPlan()
+        client.enqueue(object : Callback<MealPlanResponse> {
+            override fun onResponse(call: Call<MealPlanResponse>, response: Response<MealPlanResponse>) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _mealPlan.value = response.body()?.data
@@ -48,7 +50,7 @@ class MealPlanViewModel(private val pref: UserPreference): ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<MealsResponse>, t: Throwable) {
+            override fun onFailure(call: Call<MealPlanResponse>, t: Throwable) {
                 _isLoading.value = false
                 _message.value = t.message
             }
