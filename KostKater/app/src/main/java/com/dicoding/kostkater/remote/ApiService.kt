@@ -36,4 +36,7 @@ interface ApiService {
 
     @POST("user/data")
     fun postPreference(@Body body: PreferenceRequest): Call<PreferenceResponse>
+
+//    @GET("user/mealplan")
+//    fun getMealPlan(): Call<>
 }

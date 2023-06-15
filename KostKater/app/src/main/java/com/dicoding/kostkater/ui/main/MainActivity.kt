@@ -11,7 +11,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -28,6 +27,7 @@ import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.ViewModelFactory
 import com.dicoding.kostkater.ui.dialog.PreferenceSheet
+import com.dicoding.kostkater.ui.mealplan.MealPlanActivity
 import com.dicoding.kostkater.ui.welcome.WelcomeActivity
 import java.util.Calendar
 
@@ -157,6 +157,14 @@ class MainActivity : AppCompatActivity() {
                 }
                 true
             }
+
+            R.id.action_meal_plan -> {
+                val moveWithObjectIntent = Intent(this, MealPlanActivity::class.java)
+                moveWithObjectIntent.putExtra(MealPlanActivity.EXTRA_TOKEN, tokenString)
+                startActivity(moveWithObjectIntent)
+                true
+            }
+
             else -> true
         }
     }
