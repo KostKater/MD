@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.Glide.init
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.Recipe
 import com.dicoding.kostkater.model.meals.RecipeResponse
@@ -22,7 +23,10 @@ class RecipeViewModel(private val pref: UserPreference, private val mealName: St
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val _recipe = MutableLiveData<Recipe?>()
-    val recipe: MutableLiveData<Recipe?> = _recipe
+    val recipe: LiveData<Recipe?> = _recipe
+
+    private val _message = MutableLiveData<String>()
+    val message: LiveData<String> = _message
 
     init {
         viewModelScope.launch {
@@ -34,7 +38,7 @@ class RecipeViewModel(private val pref: UserPreference, private val mealName: St
         }
     }
 
-    fun getRecipe(token: String, mealName: String) {
+    private fun getRecipe(token: String, mealName: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService(token).getRecipe(mealName)
         client.enqueue(object : Callback<RecipeResponse> {
@@ -43,18 +47,14 @@ class RecipeViewModel(private val pref: UserPreference, private val mealName: St
                 if (response.isSuccessful) {
                     _recipe.value = response.body()?.recipe
                 } else {
-                    Log.e(TAG, "onFailure: ${response.message()}")
+                    _message.value = response.message()
                 }
             }
 
             override fun onFailure(call: Call<RecipeResponse>, t: Throwable) {
                 _isLoading.value = false
-                Log.e(TAG, "onFailure: ${t.message}")
+                _message.value = t.message
             }
         })
-    }
-
-    companion object {
-        private const val TAG = "RecipeViewModel"
     }
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -69,8 +70,6 @@ class RecipeActivity : AppCompatActivity() {
         recipeViewModel.recipe.observe(this) { recipe ->
             if (recipe != null) {
                 setIngredientData(recipe.ingredients)
-            }
-            if (recipe != null) {
                 setInstructionData(recipe.instructions)
             }
         }
@@ -78,19 +77,22 @@ class RecipeActivity : AppCompatActivity() {
         recipeViewModel.isLoading.observe(this) {
             showLoading(it)
         }
+
+        recipeViewModel.message.observe(this) { message ->
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setIngredientData(ingredient: List<String>) {
-        binding.tvIngredients.text = getString(R.string.ingredients)
+        binding.tvIngredients.visibility = View.VISIBLE
         val adapter = IngredientAdapter(ingredient)
         binding.rvIngredients.adapter = adapter
     }
 
     private fun setInstructionData(instruction: List<String>) {
-        binding.tvInstructions.text = getString(R.string.instructions)
+        binding.tvInstructions.visibility = View.VISIBLE
         val adapter = InstructionAdapter(instruction)
         binding.rvInstructions.adapter = adapter
-        binding.tvBonApetit.text = getString(R.string.bon_apetit)
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -101,16 +103,6 @@ class RecipeActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
             binding.progressBar2.visibility = View.GONE
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     companion object {

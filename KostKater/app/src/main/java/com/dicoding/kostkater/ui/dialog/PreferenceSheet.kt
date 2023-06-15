@@ -19,10 +19,9 @@ import com.dicoding.kostkater.ui.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 private val Context.dataStore by preferencesDataStore("app_preferences")
-class PreferenceSheet(token: String) : BottomSheetDialogFragment() {
+class PreferenceSheet(private val token: String) : BottomSheetDialogFragment() {
     private lateinit var preferenceViewModel: PreferenceViewModel
     private lateinit var binding: FragmentPreferenceSheetBinding
-    private var token = token
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,7 +118,6 @@ class PreferenceSheet(token: String) : BottomSheetDialogFragment() {
             val listIngredient = ingredients.split(Regex(",(?=\\s*\\w)"))
 
             preferenceViewModel.savePreference(token, halal, allergies, priceMin, priceMax, listIngredient)
-//            setResult(SUCCESS_RESULT_CODE)
         }
     }
 

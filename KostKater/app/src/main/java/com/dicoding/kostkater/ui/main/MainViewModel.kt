@@ -21,13 +21,13 @@ import retrofit2.Response
 class MainViewModel(private val pref: UserPreference): ViewModel() {
 
     private val _recommendation = MutableLiveData<List<Meal?>?>()
-    val recommendation: MutableLiveData<List<Meal?>?> = _recommendation
+    val recommendation: LiveData<List<Meal?>?> = _recommendation
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val _allMeal = MutableLiveData<List<Meal?>?>()
-    val allMeal: MutableLiveData<List<Meal?>?> = _allMeal
+    val allMeal: LiveData<List<Meal?>?> = _allMeal
 
     private val _isLoading2 = MutableLiveData<Boolean>()
     val isLoading2: LiveData<Boolean> = _isLoading2
