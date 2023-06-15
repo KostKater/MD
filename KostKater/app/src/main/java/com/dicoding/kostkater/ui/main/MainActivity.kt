@@ -11,12 +11,14 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.kostkater.R
@@ -51,7 +53,11 @@ class MainActivity : AppCompatActivity() {
         binding.rvAllMeals.layoutManager = layoutManager2
 
         binding.cvTips.setOnClickListener {
-            PreferenceSheet(tokenString).show(supportFragmentManager, "preferenceTag")
+            val bottomSheet = PreferenceSheet(tokenString)
+            bottomSheet.show(supportFragmentManager, "preferenceTag")
+            bottomSheet.setFragmentResultListener(PreferenceSheet.MY_REQUEST_KEY) {_, _ ->
+                mainViewModel.getRecommendation(tokenString)
+            }
         }
     }
 
@@ -105,19 +111,18 @@ class MainActivity : AppCompatActivity() {
     private fun setRecommendationData(meals: List<Meal?>) {
         if (meals.isEmpty()) {
             binding.tvNorec.visibility = View.VISIBLE
+            binding.rvRecommendation.visibility = View.GONE
         } else {
+            binding.tvNorec.visibility = View.GONE
+            binding.rvRecommendation.visibility = View.VISIBLE
             val adapter = MealAdapter(meals)
             binding.rvRecommendation.adapter = adapter
         }
     }
 
     private fun setAllMealData(meals: List<Meal?>) {
-        if (meals.isEmpty()) {
-            binding.tvNomeal.visibility = View.VISIBLE
-        } else {
-            val adapter = MealAdapter(meals)
-            binding.rvAllMeals.adapter = adapter
-        }
+        val adapter = MealAdapter(meals)
+        binding.rvAllMeals.adapter = adapter
     }
 
     private fun showLoading(isLoading: Boolean, progressBar: ProgressBar) {

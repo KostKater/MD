@@ -60,5 +60,4 @@
     <string name="halal">Halal</string>
     <string name="session">Yah, sesi kamu telah berakhir. Coba login lagi, ya!</string>
     <string name="rec_not_found">Kami belum menemukan rekomendasi yang sesuai untukmu. Tapi kamu bisa coba gunakan preferensi yang lain, ya!</string>
-    <string name="not_found">Menu tidak ditemukan</string>
 </resources>

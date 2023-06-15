@@ -186,7 +186,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/input_min_price"
                 android:hint="Minimal"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:digits="0,1,2,3,4,5,6,7,8,9" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -214,7 +215,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/input_max_price"
                 android:hint="Maksimal"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:digits="0,1,2,3,4,5,6,7,8,9" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.constraintlayout.widget.Guideline

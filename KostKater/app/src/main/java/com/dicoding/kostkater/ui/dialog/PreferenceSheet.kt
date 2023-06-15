@@ -1,6 +1,7 @@
 package com.dicoding.kostkater.ui.dialog
 
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.FragmentPreferenceSheetBinding
@@ -118,6 +120,7 @@ class PreferenceSheet(private val token: String) : BottomSheetDialogFragment() {
             val listIngredient = ingredients.split(Regex(",(?=\\s*\\w)"))
 
             preferenceViewModel.savePreference(token, halal, allergies, priceMin, priceMax, listIngredient)
+            setFragmentResult(MY_REQUEST_KEY, Bundle())
         }
     }
 
@@ -130,6 +133,6 @@ class PreferenceSheet(private val token: String) : BottomSheetDialogFragment() {
     }
 
     companion object {
-        const val SUCCESS_RESULT_CODE = 200
+        const val MY_REQUEST_KEY = "MY_REQUEST_KEY"
     }
 }

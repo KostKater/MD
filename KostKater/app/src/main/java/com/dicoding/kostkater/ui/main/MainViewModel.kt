@@ -56,7 +56,7 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
         }
     }
 
-    private fun getRecommendation(token: String) {
+    fun getRecommendation(token: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService(token).getRecommendation()
         client.enqueue(object : Callback<MealsResponse> {

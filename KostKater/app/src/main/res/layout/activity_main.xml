@@ -183,23 +183,11 @@
             android:text="@string/all_meals"
             android:layout_marginHorizontal="32dp" />
 
-        <TextView
-            android:id="@+id/tv_nomeal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:gravity="center"
-            android:textSize="@dimen/font_xs"
-            app:layout_constraintTop_toBottomOf="@id/text_all_meals"
-            android:text="@string/not_found"
-            android:visibility="gone"
-            android:layout_marginTop="24dp" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_all_meals"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_nomeal"
+            app:layout_constraintTop_toBottomOf="@id/text_all_meals"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
