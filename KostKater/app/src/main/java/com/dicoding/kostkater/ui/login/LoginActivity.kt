@@ -71,8 +71,10 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.edLoginEmail.text.toString()
             binding.emailEditTextLayout.error = null
+
             val password = binding.edLoginPassword.text.toString()
             binding.passwordEditTextLayout.error = null
+
             when {
                 email.isEmpty() -> {
                     binding.emailEditTextLayout.error = getString(R.string.required)

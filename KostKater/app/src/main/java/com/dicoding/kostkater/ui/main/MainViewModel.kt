@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.Glide.init
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.model.meals.MealsResponse
@@ -30,6 +31,9 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
 
     private val _isLoading2 = MutableLiveData<Boolean>()
     val isLoading2: LiveData<Boolean> = _isLoading2
+
+    private val _message = MutableLiveData<String>()
+    val message: LiveData<String> = _message
 
     init {
         viewModelScope.launch {
@@ -61,13 +65,13 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
                 if (response.isSuccessful) {
                     _recommendation.value = response.body()?.data
                 } else {
-                    Log.e(TAG, "onFailure: ${response.message()}")
+                    _message.value = response.message()
                 }
             }
 
             override fun onFailure(call: Call<MealsResponse>, t: Throwable) {
                 _isLoading.value = false
-                Log.e(TAG, "onFailure: ${t.message}")
+                _message.value = t.message
             }
         })
     }
@@ -81,18 +85,14 @@ class MainViewModel(private val pref: UserPreference): ViewModel() {
                 if (response.isSuccessful) {
                     _allMeal.value = response.body()?.data
                 } else {
-                    Log.e(TAG, "onFailure: ${response.message()}")
+                    _message.value = response.message()
                 }
             }
 
             override fun onFailure(call: Call<MealsResponse>, t: Throwable) {
                 _isLoading2.value = false
-                Log.e(TAG, "onFailure: ${t.message}")
+                _message.value = t.message
             }
         })
-    }
-
-    companion object {
-        private const val TAG = "MainViewModel"
     }
 }

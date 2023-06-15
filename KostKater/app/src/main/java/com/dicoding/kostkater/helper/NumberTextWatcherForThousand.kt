@@ -20,9 +20,6 @@ class NumberTextWatcherForThousand(var editText: EditText) : TextWatcher {
                 if (value.startsWith(".")) {
                     editText.setText("0.")
                 }
-                if (value.startsWith("0") && !value.startsWith("0.")) {
-                    editText.setText("")
-                }
                 val str = editText.text.toString().replace(",".toRegex(), "")
                 if (value != "") editText.setText(getDecimalFormattedString(str))
                 editText.setSelection(editText.text.toString().length)

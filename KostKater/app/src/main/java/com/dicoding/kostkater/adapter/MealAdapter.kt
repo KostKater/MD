@@ -30,7 +30,7 @@ class MealAdapter(private val listMeal: List<Meal?>) : RecyclerView.Adapter<Meal
                 meal.run {
                     binding.tvItemName.text = name
                     binding.tvItemPrice.text = harga
-                    binding.tvHalal.text = if (kehalalan == true) "Halal" else "Non-halal"
+                    binding.tvHalal.text = if (kehalalan) "Halal" else "Non-halal"
 
                     Glide.with(binding.root.context)
                         .load(imgUrl)

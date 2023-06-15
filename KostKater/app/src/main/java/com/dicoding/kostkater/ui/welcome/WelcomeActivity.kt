@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.ActivityWelcomeBinding
 import com.dicoding.kostkater.ui.login.LoginActivity
 import com.dicoding.kostkater.ui.register.RegisterActivity

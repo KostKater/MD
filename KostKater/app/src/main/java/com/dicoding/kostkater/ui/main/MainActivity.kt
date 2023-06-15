@@ -9,6 +9,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -68,6 +69,16 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.recommendation.observe(this) { recommendations ->
             if (recommendations != null) {
                 setRecommendationData(recommendations)
+            } else {
+                AlertDialog.Builder(this).apply {
+                    setMessage(getString(R.string.session))
+                    setPositiveButton(getString(R.string.next)) { _, _ ->
+                        mainViewModel.logout()
+                        finish()
+                    }
+                    create()
+                    show()
+                }
             }
         }
 
@@ -78,37 +89,37 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainViewModel.isLoading.observe(this) {
-            showLoading(it, 1)
+            showLoading(it, binding.progressBar)
         }
 
         mainViewModel.isLoading2.observe(this) {
-            showLoading(it, 2)
+            showLoading(it, binding.progressBar2)
         }
     }
 
     private fun setRecommendationData(meals: List<Meal?>) {
-        val adapter = MealAdapter(meals)
-        binding.rvRecommendation.adapter = adapter
+        if (meals.isEmpty()) {
+            binding.tvNorec.visibility = View.VISIBLE
+        } else {
+            val adapter = MealAdapter(meals)
+            binding.rvRecommendation.adapter = adapter
+        }
     }
 
     private fun setAllMealData(meals: List<Meal?>) {
-        val adapter = MealAdapter(meals)
-        binding.rvAllMeals.adapter = adapter
+        if (meals.isEmpty()) {
+            binding.tvNomeal.visibility = View.VISIBLE
+        } else {
+            val adapter = MealAdapter(meals)
+            binding.rvAllMeals.adapter = adapter
+        }
     }
 
-    private fun showLoading(isLoading: Boolean, progressBar: Int) {
-        if (progressBar == 1) {
-            if (isLoading) {
-                binding.progressBar.visibility = View.VISIBLE
-            } else {
-                binding.progressBar.visibility = View.GONE
-            }
+    private fun showLoading(isLoading: Boolean, progressBar: ProgressBar) {
+        if (isLoading) {
+            progressBar.visibility = View.VISIBLE
         } else {
-            if (isLoading) {
-                binding.progressBar2.visibility = View.VISIBLE
-            } else {
-                binding.progressBar2.visibility = View.GONE
-            }
+            progressBar.visibility = View.GONE
         }
     }
 
@@ -135,7 +146,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 true
             }
-
             else -> true
         }
     }

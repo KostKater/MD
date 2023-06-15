@@ -72,10 +72,13 @@ class RegisterActivity : AppCompatActivity() {
         binding.registerButton.setOnClickListener {
             val email = binding.edRegisterEmail.text.toString()
             binding.emailEditTextLayout.error = null
+
             val password = binding.edRegisterPassword.text.toString()
             binding.passwordEditTextLayout.error = null
+
             val confirmPassword = binding.edRegisterPassword2.text.toString()
             binding.passwordEditTextLayout2.error = null
+
             when {
                 email.isEmpty() -> {
                     binding.emailEditTextLayout.error = getString(R.string.required)

@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.auth.AuthRequest
 import com.dicoding.kostkater.model.auth.LoginResponse
-import com.dicoding.kostkater.model.auth.UserInfo
 import com.dicoding.kostkater.remote.ApiConfig
 import kotlinx.coroutines.launch
 import retrofit2.Call
