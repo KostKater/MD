@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity() {
             val bottomSheet = PreferenceSheet(tokenString)
             bottomSheet.show(supportFragmentManager, "preferenceTag")
             bottomSheet.setFragmentResultListener(PreferenceSheet.MY_REQUEST_KEY) {_, _ ->
-                mainViewModel.getRecommendation(tokenString)
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
     }
