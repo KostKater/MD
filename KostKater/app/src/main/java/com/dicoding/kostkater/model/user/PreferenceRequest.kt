@@ -2,25 +2,16 @@ package com.dicoding.kostkater.model.user
 
 import com.google.gson.annotations.SerializedName
 
-data class UserResponse(
-
-	@field:SerializedName("data")
-	val preference: Preference?
-)
-
-data class Preference(
+data class PreferenceRequest(
 
 	@field:SerializedName("allergies")
-	val allergies: List<String>,
+	val allergies: List<Any>,
 
 	@field:SerializedName("ingredients")
-	val ingredients: List<String>,
+	val ingredients: List<Any>,
 
 	@field:SerializedName("price_min")
 	val priceMin: Int,
-
-	@field:SerializedName("email")
-	val email: String,
 
 	@field:SerializedName("price_max")
 	val priceMax: Int,

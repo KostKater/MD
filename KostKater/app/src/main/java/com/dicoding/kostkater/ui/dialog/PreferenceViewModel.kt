@@ -1,13 +1,13 @@
 package com.dicoding.kostkater.ui.dialog
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.user.Preference
-import com.dicoding.kostkater.model.user.UserResponse
+import com.dicoding.kostkater.model.user.PreferenceRequest
+import com.dicoding.kostkater.model.user.PreferenceResponse
 import com.dicoding.kostkater.remote.ApiConfig
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -21,43 +21,63 @@ class PreferenceViewModel(private val pref: UserPreference) : ViewModel() {
     private val _userPreference = MutableLiveData<Preference?>()
     val userPreference: MutableLiveData<Preference?> = _userPreference
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    private val _isLoadingData = MutableLiveData<Boolean>()
+    val isLoadingData: LiveData<Boolean> = _isLoadingData
+
+    private val _isLoadingSave = MutableLiveData<Boolean>()
+    val isLoadingSave: LiveData<Boolean> = _isLoadingSave
+
+    private val _message = MutableLiveData<String>()
+    val message: LiveData<String> = _message
 
     init {
         viewModelScope.launch {
             pref.token.onEach {
                 if (it.isNotEmpty()) {
-                    getUserData(it)
+                    getUserPreference(it)
                 }
             }.collect()
         }
     }
 
-    private fun getUserData(token: String) {
-        _isLoading.value = true
+    private fun getUserPreference(token: String) {
+        _isLoadingData.value = true
         val client = ApiConfig.getApiService(token).getUserData()
-        client.enqueue(object : Callback<UserResponse> {
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-                _isLoading.value = false
+        client.enqueue(object : Callback<PreferenceResponse> {
+            override fun onResponse(call: Call<PreferenceResponse>, response: Response<PreferenceResponse>) {
+                _isLoadingData.value = false
                 if (response.isSuccessful) {
                     _userPreference.value = response.body()?.preference
                 } else {
-                    Log.e(TAG, "onFailure: ${response.message()}")
+                    _message.value = response.message()
                 }
             }
 
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                _isLoading.value = false
-                Log.e(TAG, "onFailure: ${t.message}")
+            override fun onFailure(call: Call<PreferenceResponse>, t: Throwable) {
+                _isLoadingData.value = false
+                _message.value = t.message
             }
         })
     }
 
-    fun savePreference(halal: Boolean, allergies: List<String>, priceMin: Int, priceMax: Int, listIngredient: List<String>) {
-    }
+    fun savePreference(token: String, halal: Boolean, allergies: List<String>, priceMin: Int, priceMax: Int, listIngredient: List<String>) {
+        _isLoadingSave.value = true
+        val client = ApiConfig.getApiService(token).postPreference(PreferenceRequest(allergies, listIngredient, priceMin, priceMax, halal))
+        client.enqueue(object : Callback<PreferenceResponse> {
+            override fun onResponse(call: Call<PreferenceResponse>, response: Response<PreferenceResponse>) {
+                _isLoadingSave.value = false
+                if (response.isSuccessful) {
+                    _userPreference.value = response.body()?.preference
+                    _message.value = "Tersimpan"
+                } else {
+                    _message.value = response.message()
+                }
+            }
 
-    companion object {
-        private const val TAG = "PreferenceViewModel"
+            override fun onFailure(call: Call<PreferenceResponse>, t: Throwable) {
+                _isLoadingSave.value = false
+                _message.value = t.message
+            }
+        })
     }
 }

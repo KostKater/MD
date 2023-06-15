@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         binding.rvAllMeals.layoutManager = layoutManager2
 
         binding.cvTips.setOnClickListener {
-            PreferenceSheet().show(supportFragmentManager, "preferenceTag")
+            PreferenceSheet(tokenString).show(supportFragmentManager, "preferenceTag")
         }
     }
 

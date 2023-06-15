@@ -59,4 +59,5 @@
     <string name="milk">Susu</string>
     <string name="wheat">Gandum</string>
     <string name="halal">Halal</string>
+    <string name="session">Yah, sesi kamu telah berakhir. Coba login lagi, ya!</string>
 </resources>

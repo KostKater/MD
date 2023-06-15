@@ -5,7 +5,8 @@ import com.dicoding.kostkater.model.auth.LoginResponse
 import com.dicoding.kostkater.model.auth.RegisterResponse
 import com.dicoding.kostkater.model.meals.MealsResponse
 import com.dicoding.kostkater.model.meals.RecipeResponse
-import com.dicoding.kostkater.model.user.UserResponse
+import com.dicoding.kostkater.model.user.PreferenceRequest
+import com.dicoding.kostkater.model.user.PreferenceResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,10 +27,13 @@ interface ApiService {
     fun getAllMeal(): Call<MealsResponse>
 
     @GET("user/data")
-    fun getUserData(): Call<UserResponse>
+    fun getUserData(): Call<PreferenceResponse>
 
     @GET("recipe")
     fun getRecipe(
         @Query("name") name: String
     ): Call<RecipeResponse>
+
+    @POST("user/data")
+    fun postPreference(@Body body: PreferenceRequest): Call<PreferenceResponse>
 }
