@@ -19,7 +19,7 @@ This app is built using Kotlin and Android Studio, supported with Android Jetpac
 To run the KostKater app, follow these steps:
 1. Download the app as a zip file or clone the Git repository
 2. Locate and extract the zip file to a directory of your choice
-3. Open Android Studio and select "Import Project." Browse and select the extracted KostKater project folder
+3. Open Android Studio and click the Open Project button. Browse and select the extracted KostKater project folder
 4. Build the Gradle project and ensure that all dependencies are successfully resolved
 5. Run the app using an emulator or a physical device connected to your development machine. Make sure you have an active internet connection to test the app's features
 
