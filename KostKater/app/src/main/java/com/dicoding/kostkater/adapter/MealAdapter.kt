@@ -9,12 +9,14 @@ import com.dicoding.kostkater.databinding.ItemRecommendationBinding
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.detail.DetailActivity
 
-class MealAdapter(private val listMeal: List<Meal?>) : RecyclerView.Adapter<MealAdapter.ViewHolder>() {
+class MealAdapter(private val listMeal: List<Meal?>) :
+    RecyclerView.Adapter<MealAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val binding = ItemRecommendationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemRecommendationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -26,22 +28,22 @@ class MealAdapter(private val listMeal: List<Meal?>) : RecyclerView.Adapter<Meal
 
     class ViewHolder(private val binding: ItemRecommendationBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            internal fun bind(meal: Meal) {
-                meal.run {
-                    binding.tvItemName.text = name
-                    binding.tvItemPrice.text = harga
-                    binding.tvHalal.text = if (kehalalan) "Halal" else "Non-halal"
+        internal fun bind(meal: Meal) {
+            meal.run {
+                binding.tvItemName.text = name
+                binding.tvItemPrice.text = harga
+                binding.tvHalal.text = if (kehalalan) "Halal" else "Non-halal"
 
-                    Glide.with(binding.root.context)
-                        .load(imgUrl)
-                        .into(binding.ivItemPhoto)
+                Glide.with(binding.root.context)
+                    .load(imgUrl)
+                    .into(binding.ivItemPhoto)
 
-                    binding.root.setOnClickListener {
-                        val moveWithObjectIntent = Intent(it.context, DetailActivity::class.java)
-                        moveWithObjectIntent.putExtra(DetailActivity.EXTRA_MEAL, meal)
-                        it.context.startActivity(moveWithObjectIntent)
-                    }
+                binding.root.setOnClickListener {
+                    val moveWithObjectIntent = Intent(it.context, DetailActivity::class.java)
+                    moveWithObjectIntent.putExtra(DetailActivity.EXTRA_MEAL, meal)
+                    it.context.startActivity(moveWithObjectIntent)
                 }
             }
+        }
     }
 }

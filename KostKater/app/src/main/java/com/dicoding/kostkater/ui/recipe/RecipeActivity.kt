@@ -2,18 +2,16 @@ package com.dicoding.kostkater.ui.recipe
 
 import android.content.Context
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.dicoding.kostkater.R
 import com.dicoding.kostkater.adapter.IngredientAdapter
 import com.dicoding.kostkater.adapter.InstructionAdapter
 import com.dicoding.kostkater.databinding.ActivityRecipeBinding
@@ -65,7 +63,10 @@ class RecipeActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel(mealName: String) {
-        recipeViewModel = ViewModelProvider(this, ViewModelFactory(UserPreference.getInstance(dataStore), mealName))[RecipeViewModel::class.java]
+        recipeViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(UserPreference.getInstance(dataStore), mealName)
+        )[RecipeViewModel::class.java]
 
         recipeViewModel.recipe.observe(this) { recipe ->
             if (recipe != null) {

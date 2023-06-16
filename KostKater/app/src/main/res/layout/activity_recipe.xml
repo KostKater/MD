@@ -10,13 +10,13 @@
         android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/baseline_arrow_back_24"
-        android:backgroundTint="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="@dimen/activity_margin"
-        android:contentDescription="@string/back"/>
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:contentDescription="@string/back"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -30,11 +30,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintTop_toTopOf="@id/iv_recipe_photo"
-                app:layout_constraintBottom_toBottomOf="@id/iv_recipe_photo"
-                android:background="@color/black"
                 android:alpha="0.3"
-                android:elevation="1dp" />
+                android:background="@color/black"
+                android:elevation="1dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_recipe_photo"
+                app:layout_constraintTop_toTopOf="@id/iv_recipe_photo" />
 
             <ImageView
                 android:id="@+id/iv_recipe_photo"
@@ -52,12 +52,12 @@
                 android:id="@+id/cv_ingredients"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_recipe_photo"
-                app:cardCornerRadius="@dimen/card_corner_radius"
                 android:layout_marginHorizontal="@dimen/activity_margin"
-                android:layout_marginTop="-50dp">
+                android:layout_marginTop="-50dp"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_recipe_photo">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -68,61 +68,61 @@
                         android:id="@+id/tv_recipe_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/eerie_black"
                         android:textSize="@dimen/font_xl"
                         android:textStyle="bold"
-                        android:textColor="@color/eerie_black"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:text="Sup Ayam Klaten" />
 
                     <TextView
                         android:id="@+id/tv_ingredients"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/ingredients"
+                        android:textColor="@color/eerie_black"
                         android:textSize="@dimen/font_l"
                         android:textStyle="bold"
-                        android:textColor="@color/eerie_black"
-                        app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
-                        android:text="@string/ingredients"
                         android:visibility="gone"
-                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_recipe_name" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_ingredients"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_ingredients"
+                        android:layout_marginTop="12dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginTop="12dp" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_ingredients" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:drawableTint="@color/black"
                 android:id="@+id/tv_instructions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="36dp"
+                android:layout_marginTop="24dp"
+                android:drawableTint="@color/black"
+                android:text="@string/instructions"
+                android:textColor="@color/eerie_black"
                 android:textSize="@dimen/font_xl"
                 android:textStyle="bold"
-                android:textColor="@color/eerie_black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cv_ingredients"
-                android:text="@string/instructions"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="24dp"
-                android:layout_marginHorizontal="36dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_ingredients" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_instructions"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_instructions"
-                android:layout_margin="@dimen/activity_margin"/>
+                android:layout_margin="@dimen/activity_margin"
+                app:layout_constraintTop_toBottomOf="@id/tv_instructions" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -131,10 +131,10 @@
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
                 android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/cv_ingredients"
                 app:layout_constraintBottom_toBottomOf="@id/cv_ingredients"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cv_ingredients"
                 tools:visibility="visible" />
 
             <ProgressBar
@@ -144,10 +144,10 @@
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
                 android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/rv_instructions"
                 app:layout_constraintBottom_toBottomOf="@id/rv_instructions"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rv_instructions"
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

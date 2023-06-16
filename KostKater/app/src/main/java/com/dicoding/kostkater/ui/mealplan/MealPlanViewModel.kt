@@ -7,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.mealplan.MealPlan
 import com.dicoding.kostkater.model.mealplan.MealPlanResponse
-import com.dicoding.kostkater.model.meals.Meal
-import com.dicoding.kostkater.model.meals.MealsResponse
 import com.dicoding.kostkater.remote.ApiConfig
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -17,7 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MealPlanViewModel(private val pref: UserPreference): ViewModel() {
+class MealPlanViewModel(private val pref: UserPreference) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -41,7 +39,10 @@ class MealPlanViewModel(private val pref: UserPreference): ViewModel() {
         _isLoading.value = true
         val client = ApiConfig.getApiService(token).getMealPlan()
         client.enqueue(object : Callback<MealPlanResponse> {
-            override fun onResponse(call: Call<MealPlanResponse>, response: Response<MealPlanResponse>) {
+            override fun onResponse(
+                call: Call<MealPlanResponse>,
+                response: Response<MealPlanResponse>
+            ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _mealPlan.value = response.body()?.data

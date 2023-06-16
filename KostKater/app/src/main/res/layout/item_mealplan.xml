@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginVertical="16dp">
@@ -11,9 +11,9 @@
         android:id="@+id/tv_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/eerie_black"
         android:textSize="@dimen/font_xl"
         android:textStyle="bold"
-        android:textColor="@color/eerie_black"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Tanggal" />
 
@@ -21,9 +21,9 @@
         android:id="@+id/cv_breakfast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:layout_constraintTop_toBottomOf="@id/tv_date"
         android:layout_marginVertical="8dp"
-        card_view:cardCornerRadius="@dimen/card_corner_radius">
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        card_view:layout_constraintTop_toBottomOf="@id/tv_date">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -44,14 +44,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/card_recommendation_margin"
-                android:textSize="@dimen/font_s"
+                android:maxLines="2"
                 android:textColor="@color/eerie_black"
+                android:textSize="@dimen/font_s"
                 android:textStyle="bold"
+                card_view:layout_constraintBottom_toTopOf="@id/tv_type_breakfast"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toEndOf="@+id/iv_breakfast"
                 card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintBottom_toTopOf="@id/tv_type_breakfast"
-                android:maxLines="2"
                 tools:text="Makanan" />
 
             <TextView
@@ -59,14 +59,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/card_recommendation_margin"
-                card_view:layout_constraintStart_toEndOf="@id/iv_breakfast"
-                card_view:layout_constraintTop_toBottomOf="@+id/tv_name_breakfast"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/breakfast"
-                android:textSize="@dimen/font_xs"
-                android:textColor="@color/black"
                 android:background="@drawable/back"
-                android:paddingHorizontal="10dp" />
+                android:paddingHorizontal="10dp"
+                android:text="@string/breakfast"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_xs"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/iv_breakfast"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_name_breakfast" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -74,9 +74,9 @@
         android:id="@+id/cv_lunch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:layout_constraintTop_toBottomOf="@id/cv_breakfast"
         android:layout_marginVertical="8dp"
-        card_view:cardCornerRadius="@dimen/card_corner_radius">
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        card_view:layout_constraintTop_toBottomOf="@id/cv_breakfast">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -97,14 +97,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/card_recommendation_margin"
-                android:textSize="@dimen/font_s"
+                android:maxLines="2"
                 android:textColor="@color/eerie_black"
+                android:textSize="@dimen/font_s"
                 android:textStyle="bold"
+                card_view:layout_constraintBottom_toTopOf="@id/tv_type_lunch"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toEndOf="@+id/iv_lunch"
                 card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintBottom_toTopOf="@id/tv_type_lunch"
-                android:maxLines="2"
                 tools:text="Makanan" />
 
             <TextView
@@ -112,14 +112,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/card_recommendation_margin"
-                card_view:layout_constraintStart_toEndOf="@id/iv_lunch"
-                card_view:layout_constraintTop_toBottomOf="@+id/tv_name_lunch"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/lunch"
-                android:textSize="@dimen/font_xs"
-                android:textColor="@color/black"
                 android:background="@drawable/back"
-                android:paddingHorizontal="10dp" />
+                android:paddingHorizontal="10dp"
+                android:text="@string/lunch"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_xs"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/iv_lunch"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_name_lunch" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -127,9 +127,9 @@
         android:id="@+id/cv_dinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:layout_constraintTop_toBottomOf="@id/cv_lunch"
         android:layout_marginVertical="8dp"
-        card_view:cardCornerRadius="@dimen/card_corner_radius">
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        card_view:layout_constraintTop_toBottomOf="@id/cv_lunch">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -150,14 +150,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/card_recommendation_margin"
-                android:textSize="@dimen/font_s"
+                android:maxLines="2"
                 android:textColor="@color/eerie_black"
+                android:textSize="@dimen/font_s"
                 android:textStyle="bold"
+                card_view:layout_constraintBottom_toTopOf="@id/tv_type_dinner"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toEndOf="@+id/iv_dinner"
                 card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintBottom_toTopOf="@id/tv_type_dinner"
-                android:maxLines="2"
                 tools:text="Makanan" />
 
             <TextView
@@ -165,14 +165,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/card_recommendation_margin"
-                card_view:layout_constraintStart_toEndOf="@id/iv_dinner"
-                card_view:layout_constraintTop_toBottomOf="@+id/tv_name_dinner"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/dinner"
-                android:textSize="@dimen/font_xs"
-                android:textColor="@color/black"
                 android:background="@drawable/back"
-                android:paddingHorizontal="10dp" />
+                android:paddingHorizontal="10dp"
+                android:text="@string/dinner"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_xs"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/iv_dinner"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_name_dinner" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

@@ -8,15 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.databinding.ItemMealplanBinding
 import com.dicoding.kostkater.model.mealplan.MealPlan
-import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.detail.DetailActivity
 
-class MealPlanAdapter(private val mealPlan: List<MealPlan?>) : RecyclerView.Adapter<MealPlanAdapter.ViewHolder>() {
+class MealPlanAdapter(private val mealPlan: List<MealPlan?>) :
+    RecyclerView.Adapter<MealPlanAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val binding = ItemMealplanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemMealplanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -45,7 +46,7 @@ class MealPlanAdapter(private val mealPlan: List<MealPlan?>) : RecyclerView.Adap
                         it.context.startActivity(moveWithObjectIntent)
                     }
                 } else {
-                    binding.cvBreakfast.visibility= View.GONE
+                    binding.cvBreakfast.visibility = View.GONE
                 }
 
                 if (lunch != null) {
@@ -61,7 +62,7 @@ class MealPlanAdapter(private val mealPlan: List<MealPlan?>) : RecyclerView.Adap
                         it.context.startActivity(moveWithObjectIntent)
                     }
                 } else {
-                    binding.cvLunch.visibility= View.GONE
+                    binding.cvLunch.visibility = View.GONE
                 }
 
                 if (dinner != null) {
@@ -77,7 +78,7 @@ class MealPlanAdapter(private val mealPlan: List<MealPlan?>) : RecyclerView.Adap
                         it.context.startActivity(moveWithObjectIntent)
                     }
                 } else {
-                    binding.cvDinner.visibility= View.GONE
+                    binding.cvDinner.visibility = View.GONE
                 }
             }
         }

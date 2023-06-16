@@ -1,11 +1,11 @@
 package com.dicoding.kostkater.ui.mealplan
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -15,7 +15,6 @@ import com.dicoding.kostkater.adapter.MealPlanAdapter
 import com.dicoding.kostkater.databinding.ActivityMealPlanBinding
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.mealplan.MealPlan
-import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.ViewModelFactory
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -37,7 +36,10 @@ class MealPlanActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        mealPlanViewModel = ViewModelProvider(this, ViewModelFactory(UserPreference.getInstance(dataStore), null))[MealPlanViewModel::class.java]
+        mealPlanViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(UserPreference.getInstance(dataStore), null)
+        )[MealPlanViewModel::class.java]
 
         mealPlanViewModel.mealPlan.observe(this) { mealPlan ->
             if (mealPlan != null) {

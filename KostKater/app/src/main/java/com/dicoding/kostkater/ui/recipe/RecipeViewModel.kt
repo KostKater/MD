@@ -1,11 +1,9 @@
 package com.dicoding.kostkater.ui.recipe
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bumptech.glide.Glide.init
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.Recipe
 import com.dicoding.kostkater.model.meals.RecipeResponse
@@ -17,7 +15,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RecipeViewModel(private val pref: UserPreference, private val mealName: String): ViewModel() {
+class RecipeViewModel(private val pref: UserPreference, private val mealName: String) :
+    ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -42,7 +41,10 @@ class RecipeViewModel(private val pref: UserPreference, private val mealName: St
         _isLoading.value = true
         val client = ApiConfig.getApiService(token).getRecipe(mealName)
         client.enqueue(object : Callback<RecipeResponse> {
-            override fun onResponse(call: Call<RecipeResponse>, response: Response<RecipeResponse>) {
+            override fun onResponse(
+                call: Call<RecipeResponse>,
+                response: Response<RecipeResponse>
+            ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _recipe.value = response.body()?.recipe

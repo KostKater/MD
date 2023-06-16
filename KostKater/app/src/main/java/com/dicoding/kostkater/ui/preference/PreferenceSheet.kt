@@ -20,6 +20,7 @@ import com.dicoding.kostkater.ui.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 private val Context.dataStore by preferencesDataStore("app_preferences")
+
 class PreferenceSheet(private val token: String) : BottomSheetDialogFragment() {
     private lateinit var preferenceViewModel: PreferenceViewModel
     private lateinit var binding: FragmentPreferenceSheetBinding
@@ -31,7 +32,11 @@ class PreferenceSheet(private val token: String) : BottomSheetDialogFragment() {
         setupButtonAction(token)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentPreferenceSheetBinding.inflate(inflater, container, false)
 
         binding.inputMinPrice.addTextChangedListener(NumberTextWatcherForThousand(binding.inputMinPrice))
@@ -109,16 +114,25 @@ class PreferenceSheet(private val token: String) : BottomSheetDialogFragment() {
             addAllergy(binding.checkboxMilk, allergies)
             addAllergy(binding.checkboxWheat, allergies)
 
-            val priceMinString = NumberTextWatcherForThousand.trimCommaOfString(binding.inputMinPrice.text.toString())
+            val priceMinString =
+                NumberTextWatcherForThousand.trimCommaOfString(binding.inputMinPrice.text.toString())
             val priceMin = if (priceMinString.isEmpty()) 0 else priceMinString.toInt()
 
-            val priceMaxString = NumberTextWatcherForThousand.trimCommaOfString(binding.inputMaxPrice.text.toString())
+            val priceMaxString =
+                NumberTextWatcherForThousand.trimCommaOfString(binding.inputMaxPrice.text.toString())
             val priceMax = if (priceMaxString.isEmpty()) 999999999 else priceMaxString.toInt()
 
             val ingredients = binding.inputIngredient.text.toString()
             val listIngredient = ingredients.split(Regex(",(?=\\s*\\w)"))
 
-            preferenceViewModel.savePreference(token, halal, allergies, priceMin, priceMax, listIngredient)
+            preferenceViewModel.savePreference(
+                token,
+                halal,
+                allergies,
+                priceMin,
+                priceMax,
+                listIngredient
+            )
             setFragmentResult(MY_REQUEST_KEY, Bundle())
         }
     }

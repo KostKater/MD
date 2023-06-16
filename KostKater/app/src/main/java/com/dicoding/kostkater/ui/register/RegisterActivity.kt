@@ -3,13 +3,12 @@ package com.dicoding.kostkater.ui.register
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -123,7 +122,7 @@ class RegisterActivity : AppCompatActivity() {
                     finish()
                 }
             } else {
-                setNegativeButton(getString(R.string.try_again)) {_, _ ->
+                setNegativeButton(getString(R.string.try_again)) { _, _ ->
                     val intent = Intent(context, RegisterActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)

@@ -2,16 +2,12 @@ package com.dicoding.kostkater.ui.detail
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.setFragmentResultListener
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.dicoding.kostkater.databinding.ActivityDetailBinding
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.addplan.AddPlanSheet
-import com.dicoding.kostkater.ui.main.MainActivity
-import com.dicoding.kostkater.ui.mealplan.MealPlanActivity
-import com.dicoding.kostkater.ui.preference.PreferenceSheet
 import com.dicoding.kostkater.ui.recipe.RecipeActivity
 
 class DetailActivity : AppCompatActivity() {
@@ -50,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
             binding.tvDetailPrice.text = meal.harga
             binding.tvCalorieValue.text = meal.nutrisi.kalori.toString() + "kal"
             binding.tvCarboValue.text = meal.nutrisi.karbohidrat.toString() + "g"
-            binding.tvProteinValue.text = meal.nutrisi.protein.toString() +"g"
+            binding.tvProteinValue.text = meal.nutrisi.protein.toString() + "g"
             binding.tvFatValue.text = meal.nutrisi.lemak.toString() + "g"
 
             binding.recipeButton.setOnClickListener {

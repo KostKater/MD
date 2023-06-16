@@ -1,12 +1,10 @@
 package com.dicoding.kostkater.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.bumptech.glide.Glide.init
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.model.meals.MealsResponse
@@ -18,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel(private val pref: UserPreference): ViewModel() {
+class MainViewModel(private val pref: UserPreference) : ViewModel() {
 
     private val _recommendation = MutableLiveData<List<Meal?>?>()
     val recommendation: LiveData<List<Meal?>?> = _recommendation

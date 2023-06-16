@@ -7,13 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.FragmentAddPlanSheetBinding
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.ui.ViewModelFactory
-import com.dicoding.kostkater.ui.preference.PreferenceSheet
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -33,7 +31,11 @@ class AddPlanSheet(private val mealName: String) : BottomSheetDialogFragment() {
         setupButtonAction()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentAddPlanSheetBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -5,12 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.kostkater.databinding.ItemIngredientBinding
 
-class IngredientAdapter(private val listIngredient: List<String>) : RecyclerView.Adapter<IngredientAdapter.ViewHolder>() {
+class IngredientAdapter(private val listIngredient: List<String>) :
+    RecyclerView.Adapter<IngredientAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val binding = ItemIngredientBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemIngredientBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

@@ -1,19 +1,18 @@
 package com.dicoding.kostkater.ui
 
-import com.dicoding.kostkater.model.UserPreference
-import com.dicoding.kostkater.ui.main.MainViewModel
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.kostkater.ui.addplan.AddPlanSheet
+import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.ui.addplan.AddPlanViewModel
-import com.dicoding.kostkater.ui.preference.PreferenceViewModel
 import com.dicoding.kostkater.ui.login.LoginViewModel
+import com.dicoding.kostkater.ui.main.MainViewModel
 import com.dicoding.kostkater.ui.mealplan.MealPlanViewModel
+import com.dicoding.kostkater.ui.preference.PreferenceViewModel
 import com.dicoding.kostkater.ui.recipe.RecipeViewModel
 import com.dicoding.kostkater.ui.register.RegisterViewModel
 
-class ViewModelFactory(private val pref: UserPreference, private val string: String?) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val pref: UserPreference, private val string: String?) :
+    ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

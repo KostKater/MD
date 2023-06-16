@@ -37,9 +37,13 @@ class AddPlanViewModel(private val pref: UserPreference) : ViewModel() {
 
     fun addMealPlan(mealName: String, date: String, groupMeal: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService(token).postMealPlan(MealPlanRequest(date, mealName, groupMeal))
+        val client =
+            ApiConfig.getApiService(token).postMealPlan(MealPlanRequest(date, mealName, groupMeal))
         client.enqueue(object : Callback<MealPlanPostResponse> {
-            override fun onResponse(call: Call<MealPlanPostResponse>, response: Response<MealPlanPostResponse>) {
+            override fun onResponse(
+                call: Call<MealPlanPostResponse>,
+                response: Response<MealPlanPostResponse>
+            ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _message.value = "Tersimpan"
