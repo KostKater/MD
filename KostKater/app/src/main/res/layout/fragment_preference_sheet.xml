@@ -254,6 +254,13 @@
             android:gravity="start|top" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/activity_margin"
+        android:textSize="12sp"
+        android:text="@string/ingredients_tips"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

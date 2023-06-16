@@ -35,7 +35,7 @@ class AddPlanViewModel(private val pref: UserPreference) : ViewModel() {
         }
     }
 
-    fun addMealPlan(token: String, mealName: String, date: String, groupMeal: String) {
+    fun addMealPlan(mealName: String, date: String, groupMeal: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService(token).postMealPlan(MealPlanRequest(date, mealName, groupMeal))
         client.enqueue(object : Callback<MealPlanPostResponse> {

@@ -30,6 +30,13 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/limit"
+        android:layout_marginHorizontal="@dimen/activity_margin"
+        />
+
     <DatePicker
         android:id="@+id/date_picker"
         android:layout_width="wrap_content"
@@ -59,7 +66,8 @@
             android:layout_height="wrap_content"
             android:text="@string/breakfast"
             android:buttonTint="@color/hunter_green"
-            android:paddingHorizontal="7dp"/>
+            android:paddingHorizontal="7dp"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/rb_lunch"

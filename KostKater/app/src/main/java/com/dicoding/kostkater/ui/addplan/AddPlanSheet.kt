@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kostkater.R
 import com.dicoding.kostkater.databinding.FragmentAddPlanSheetBinding
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.ui.ViewModelFactory
+import com.dicoding.kostkater.ui.preference.PreferenceSheet
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import java.text.SimpleDateFormat
 import java.util.Calendar
 
 
@@ -27,7 +30,7 @@ class AddPlanSheet(private val mealName: String) : BottomSheetDialogFragment() {
 
         setLimitDate()
         setupViewModel()
-//        setupButtonAction(token)
+        setupButtonAction()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -58,22 +61,28 @@ class AddPlanSheet(private val mealName: String) : BottomSheetDialogFragment() {
         }
     }
 
-//    private fun setupButtonAction(token: String) {
-//        binding.addButton.setOnClickListener {
-//            val allergies = mutableListOf<String>()
-//
-//            val priceMinString = NumberTextWatcherForThousand.trimCommaOfString(binding.inputMinPrice.text.toString())
-//            val priceMin = if (priceMinString.isEmpty()) 0 else priceMinString.toInt()
-//
-//            val priceMaxString = NumberTextWatcherForThousand.trimCommaOfString(binding.inputMaxPrice.text.toString())
-//            val priceMax = if (priceMaxString.isEmpty()) 999999999 else priceMaxString.toInt()
-//
-//            val ingredients = binding.inputIngredient.text.toString()
-//            val listIngredient = ingredients.split(Regex(",(?=\\s*\\w)"))
-//
-//            preferenceViewModel.savePreference(token, halal, allergies, priceMin, priceMax, listIngredient)
-//        }
-//    }
+    private fun setupButtonAction() {
+        binding.saveButton.setOnClickListener {
+            val day = binding.datePicker.dayOfMonth
+            val month = binding.datePicker.month
+            val year = binding.datePicker.year
+            val calendar = Calendar.getInstance()
+            calendar[year, month] = day
+
+            val sdf = SimpleDateFormat("yyyy-MM-dd")
+            val formattedDate: String = sdf.format(calendar.time)
+
+            val groupMeal = if (binding.rbBreakfast.isChecked) {
+                "breakfast"
+            } else if (binding.rbLunch.isChecked) {
+                "lunch"
+            } else {
+                "dinner"
+            }
+
+            addPlanViewModel.addMealPlan(mealName, formattedDate, groupMeal)
+        }
+    }
 
     private fun setLimitDate() {
         val calendar = Calendar.getInstance()
