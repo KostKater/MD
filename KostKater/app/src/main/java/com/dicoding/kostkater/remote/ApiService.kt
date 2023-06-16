@@ -3,6 +3,8 @@ package com.dicoding.kostkater.remote
 import com.dicoding.kostkater.model.auth.AuthRequest
 import com.dicoding.kostkater.model.auth.LoginResponse
 import com.dicoding.kostkater.model.auth.RegisterResponse
+import com.dicoding.kostkater.model.mealplan.MealPlanPostResponse
+import com.dicoding.kostkater.model.mealplan.MealPlanRequest
 import com.dicoding.kostkater.model.mealplan.MealPlanResponse
 import com.dicoding.kostkater.model.meals.MealsResponse
 import com.dicoding.kostkater.model.meals.RecipeResponse
@@ -40,4 +42,7 @@ interface ApiService {
 
     @GET("user/mealplan")
     fun getMealPlan(): Call<MealPlanResponse>
+
+    @POST("user/mealplan")
+    fun postMealPlan(@Body body: MealPlanRequest): Call<MealPlanPostResponse>
 }

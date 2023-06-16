@@ -5,7 +5,9 @@ import com.dicoding.kostkater.ui.main.MainViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.kostkater.ui.dialog.PreferenceViewModel
+import com.dicoding.kostkater.ui.addplan.AddPlanSheet
+import com.dicoding.kostkater.ui.addplan.AddPlanViewModel
+import com.dicoding.kostkater.ui.preference.PreferenceViewModel
 import com.dicoding.kostkater.ui.login.LoginViewModel
 import com.dicoding.kostkater.ui.mealplan.MealPlanViewModel
 import com.dicoding.kostkater.ui.recipe.RecipeViewModel
@@ -38,6 +40,10 @@ class ViewModelFactory(private val pref: UserPreference, private val string: Str
 
             modelClass.isAssignableFrom(MealPlanViewModel::class.java) -> {
                 MealPlanViewModel(pref) as T
+            }
+
+            modelClass.isAssignableFrom(AddPlanViewModel::class.java) -> {
+                AddPlanViewModel(pref) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

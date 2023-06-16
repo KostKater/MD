@@ -1,4 +1,4 @@
-package com.dicoding.kostkater.ui.dialog
+package com.dicoding.kostkater.ui.preference
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

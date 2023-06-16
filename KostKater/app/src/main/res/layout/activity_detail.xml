@@ -381,16 +381,44 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/recipe_button"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/view_recipe"
         android:textSize="@dimen/font_s"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline_vertical2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/add_plan_button"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:paddingVertical="@dimen/button_vertical_padding"
+        android:backgroundTint="@color/black"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_plan_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/meal_plan"
+        android:textSize="@dimen/font_s"
+        app:layout_constraintStart_toEndOf="@id/guideline_vertical2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/activity_margin"
-        android:layout_marginHorizontal="@dimen/activity_margin"
+        android:layout_marginRight="@dimen/activity_margin"
+        android:layout_marginLeft="5dp"
         android:paddingVertical="@dimen/button_vertical_padding"
-        app:shapeAppearanceOverlay="@style/RoundedSquare"/>
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
+        android:drawableLeft="@drawable/baseline_add_24"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical2"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

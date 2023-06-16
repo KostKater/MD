@@ -1,7 +1,6 @@
-package com.dicoding.kostkater.ui.dialog
+package com.dicoding.kostkater.ui.preference
 
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

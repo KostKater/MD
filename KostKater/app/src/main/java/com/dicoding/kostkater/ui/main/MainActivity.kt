@@ -26,7 +26,7 @@ import com.dicoding.kostkater.databinding.ActivityMainBinding
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.ViewModelFactory
-import com.dicoding.kostkater.ui.dialog.PreferenceSheet
+import com.dicoding.kostkater.ui.preference.PreferenceSheet
 import com.dicoding.kostkater.ui.mealplan.MealPlanActivity
 import com.dicoding.kostkater.ui.welcome.WelcomeActivity
 import java.util.Calendar
