@@ -11,34 +11,34 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:background="@color/light_gray">
+        android:background="@color/light_gray"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/tv_item_step"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/font_l"
-            android:textStyle="bold"
             android:gravity="center"
             android:textColor="@color/eerie_black"
-            card_view:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/font_l"
+            android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintEnd_toStartOf="@id/tv_item_instruction"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
             tools:text="1" />
 
         <TextView
             android:id="@+id/tv_item_instruction"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/font_xs"
-            android:textColor="@color/eerie_black"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintStart_toEndOf="@id/tv_item_step"
-            card_view:layout_constraintEnd_toEndOf="parent"
             android:lineHeight="20dp"
+            android:textColor="@color/eerie_black"
+            android:textSize="@dimen/font_xs"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toEndOf="@id/tv_item_step"
+            card_view:layout_constraintTop_toTopOf="parent"
             tools:text="Rebus ekor ayam kampung muda dalam air yang cukup hingga ayam matang dan empuk. Angkat ayam dan sisihkan kaldu ayam yang dihasilkan." />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

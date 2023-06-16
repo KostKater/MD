@@ -11,7 +11,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -27,7 +26,8 @@ import com.dicoding.kostkater.databinding.ActivityMainBinding
 import com.dicoding.kostkater.model.UserPreference
 import com.dicoding.kostkater.model.meals.Meal
 import com.dicoding.kostkater.ui.ViewModelFactory
-import com.dicoding.kostkater.ui.dialog.PreferenceSheet
+import com.dicoding.kostkater.ui.mealplan.MealPlanActivity
+import com.dicoding.kostkater.ui.preference.PreferenceSheet
 import com.dicoding.kostkater.ui.welcome.WelcomeActivity
 import java.util.Calendar
 
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         binding.cvTips.setOnClickListener {
             val bottomSheet = PreferenceSheet(tokenString)
             bottomSheet.show(supportFragmentManager, "preferenceTag")
-            bottomSheet.setFragmentResultListener(PreferenceSheet.MY_REQUEST_KEY) {_, _ ->
+            bottomSheet.setFragmentResultListener(PreferenceSheet.MY_REQUEST_KEY) { _, _ ->
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
@@ -63,7 +63,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        mainViewModel = ViewModelProvider(this, ViewModelFactory(UserPreference.getInstance(dataStore), null))[MainViewModel::class.java]
+        mainViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(UserPreference.getInstance(dataStore), null)
+        )[MainViewModel::class.java]
 
         mainViewModel.getToken().observe(this) { token ->
             if (token.isEmpty()) {
@@ -157,6 +160,14 @@ class MainActivity : AppCompatActivity() {
                 }
                 true
             }
+
+            R.id.action_meal_plan -> {
+                val moveWithObjectIntent = Intent(this, MealPlanActivity::class.java)
+                moveWithObjectIntent.putExtra(MealPlanActivity.EXTRA_TOKEN, tokenString)
+                startActivity(moveWithObjectIntent)
+                true
+            }
+
             else -> true
         }
     }
@@ -179,7 +190,12 @@ class MainActivity : AppCompatActivity() {
         val spannableString = SpannableString(text)
 
         val whiteColorSpan = ForegroundColorSpan(ContextCompat.getColor(this, R.color.white))
-        spannableString.setSpan(whiteColorSpan, 0, greeting.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(
+            whiteColorSpan,
+            0,
+            greeting.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
         val colorSpan = ForegroundColorSpan(ContextCompat.getColor(this, R.color.selective_yellow))
 

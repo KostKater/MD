@@ -15,26 +15,26 @@
             android:id="@+id/tv_greetings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/tv_banner"
+            android:layout_marginHorizontal="30dp"
             android:elevation="10dp"
             android:textColor="@color/white"
-            android:layout_marginHorizontal="30dp"
             android:textSize="@dimen/font_xl"
             android:textStyle="bold"
-            tools:text="Selamat pagi."/>
+            app:layout_constraintBottom_toTopOf="@id/tv_banner"
+            tools:text="Selamat pagi." />
 
         <TextView
             android:id="@+id/tv_banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/iv_banner"
-            app:layout_constraintBottom_toBottomOf="@id/iv_banner"
-            android:elevation="10dp"
-            android:textColor="@color/white"
             android:layout_marginHorizontal="30dp"
+            android:elevation="10dp"
+            android:text="@string/what_to_eat"
+            android:textColor="@color/white"
             android:textSize="32dp"
             android:textStyle="bold"
-            android:text="@string/what_to_eat"/>
+            app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+            app:layout_constraintTop_toTopOf="@id/iv_banner" />
 
         <ImageView
             android:id="@+id/iv_banner"
@@ -42,54 +42,54 @@
             android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
+            android:src="@drawable/banner"
             app:layout_constraintDimensionRatio="H,4:3"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/banner"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/iv_banner"
-            app:layout_constraintBottom_toBottomOf="@id/iv_banner"
-            android:background="@color/black"
             android:alpha="0.5"
-            android:elevation="1dp" />
+            android:background="@color/black"
+            android:elevation="1dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+            app:layout_constraintTop_toTopOf="@id/iv_banner" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/iv_banner"
-            android:layout_marginTop="-50dp"
             android:layout_marginHorizontal="@dimen/activity_margin"
-            app:cardCornerRadius="15dp">
+            android:layout_marginTop="-50dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintTop_toBottomOf="@id/iv_banner">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="14dp"
-                android:background="@color/hunter_green">
+                android:background="@color/hunter_green"
+                android:padding="14dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/spark_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:cardCornerRadius="15dp"
                     app:layout_constraintEnd_toStartOf="@id/tv_tips"
-                    app:cardCornerRadius="15dp">
+                    app:layout_constraintStart_toStartOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/black"
                         android:alpha="0.85"
+                        android:background="@color/black"
                         android:padding="22dp">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/sparkles_24"
-                            android:elevation="10dp" />
+                            android:elevation="10dp"
+                            android:src="@drawable/sparkles_24" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -97,26 +97,26 @@
                     android:id="@+id/tv_tips"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/spark_icon"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/tips"
                     android:textColor="@color/white"
                     android:textSize="@dimen/font_xs"
-                    android:text="@string/tips"
-                    android:layout_marginLeft="14dp"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/spark_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_preference"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/spark_icon"
-                    app:layout_constraintTop_toBottomOf="@id/tv_tips"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginLeft="14dp"
+                    android:drawableRight="@drawable/baseline_arrow_right_alt_24"
+                    android:text="@string/set_preference"
                     android:textColor="@color/selective_yellow"
                     android:textSize="@dimen/font_xs"
-                    android:drawableRight="@drawable/baseline_arrow_right_alt_24"
-                    android:text="@string/set_preference"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/spark_icon"
+                    app:layout_constraintTop_toBottomOf="@id/tv_tips" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -124,37 +124,37 @@
             android:id="@+id/text_recommendation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/cv_tips"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="32dp"
             android:layout_marginTop="22dp"
+            android:text="@string/recommendation"
+            android:textColor="@color/eerie_black"
             android:textSize="@dimen/font_m"
             android:textStyle="bold"
-            android:textColor="@color/eerie_black"
-            android:text="@string/recommendation"
-            android:layout_marginHorizontal="32dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_tips" />
 
         <TextView
             android:id="@+id/tv_norec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
             android:gravity="center"
-            android:textSize="@dimen/font_xs"
-            app:layout_constraintTop_toBottomOf="@id/text_recommendation"
             android:text="@string/rec_not_found"
+            android:textSize="@dimen/font_xs"
             android:visibility="gone"
-            android:layout_marginTop="24dp" />
+            app:layout_constraintTop_toBottomOf="@id/text_recommendation" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recommendation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_norec"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/activity_margin"
             android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="@dimen/activity_margin"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_norec" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -163,35 +163,35 @@
             android:layout_height="wrap_content"
             android:elevation="10dp"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/text_recommendation"
             app:layout_constraintBottom_toBottomOf="@id/rv_recommendation"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_recommendation"
             tools:visibility="visible" />
 
         <TextView
             android:id="@+id/text_all_meals"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/rv_recommendation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="32dp"
             android:layout_marginTop="22dp"
+            android:text="@string/all_meals"
+            android:textColor="@color/eerie_black"
             android:textSize="@dimen/font_m"
             android:textStyle="bold"
-            android:textColor="@color/eerie_black"
-            android:text="@string/all_meals"
-            android:layout_marginHorizontal="32dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_recommendation" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_all_meals"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/text_all_meals"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/activity_margin"
             android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="@dimen/activity_margin"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_all_meals" />
 
         <ProgressBar
             android:id="@+id/progress_bar2"
@@ -200,10 +200,10 @@
             android:layout_height="wrap_content"
             android:elevation="10dp"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/text_all_meals"
             app:layout_constraintBottom_toBottomOf="@id/rv_all_meals"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_all_meals"
             tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.Guideline

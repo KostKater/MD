@@ -1,4 +1,4 @@
-package com.dicoding.kostkater.ui.dialog
+package com.dicoding.kostkater.ui.preference
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -44,7 +44,10 @@ class PreferenceViewModel(private val pref: UserPreference) : ViewModel() {
         _isLoadingData.value = true
         val client = ApiConfig.getApiService(token).getUserData()
         client.enqueue(object : Callback<PreferenceResponse> {
-            override fun onResponse(call: Call<PreferenceResponse>, response: Response<PreferenceResponse>) {
+            override fun onResponse(
+                call: Call<PreferenceResponse>,
+                response: Response<PreferenceResponse>
+            ) {
                 _isLoadingData.value = false
                 if (response.isSuccessful) {
                     _userPreference.value = response.body()?.preference
@@ -60,11 +63,22 @@ class PreferenceViewModel(private val pref: UserPreference) : ViewModel() {
         })
     }
 
-    fun savePreference(token: String, halal: Boolean, allergies: List<String>, priceMin: Int, priceMax: Int, listIngredient: List<String>) {
+    fun savePreference(
+        token: String,
+        halal: Boolean,
+        allergies: List<String>,
+        priceMin: Int,
+        priceMax: Int,
+        listIngredient: List<String>
+    ) {
         _isLoadingSave.value = true
-        val client = ApiConfig.getApiService(token).postPreference(PreferenceRequest(allergies, listIngredient, priceMin, priceMax, halal))
+        val client = ApiConfig.getApiService(token)
+            .postPreference(PreferenceRequest(allergies, listIngredient, priceMin, priceMax, halal))
         client.enqueue(object : Callback<PreferenceResponse> {
-            override fun onResponse(call: Call<PreferenceResponse>, response: Response<PreferenceResponse>) {
+            override fun onResponse(
+                call: Call<PreferenceResponse>,
+                response: Response<PreferenceResponse>
+            ) {
                 _isLoadingSave.value = false
                 if (response.isSuccessful) {
                     _userPreference.value = response.body()?.preference

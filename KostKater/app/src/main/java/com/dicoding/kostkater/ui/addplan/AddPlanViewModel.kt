@@ -1,12 +1,12 @@
-package com.dicoding.kostkater.ui.recipe
+package com.dicoding.kostkater.ui.addplan
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.kostkater.model.UserPreference
-import com.dicoding.kostkater.model.meals.Recipe
-import com.dicoding.kostkater.model.meals.RecipeResponse
+import com.dicoding.kostkater.model.mealplan.MealPlanPostResponse
+import com.dicoding.kostkater.model.mealplan.MealPlanRequest
 import com.dicoding.kostkater.remote.ApiConfig
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -15,45 +15,44 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RecipeViewModel(private val pref: UserPreference, private val mealName: String) :
-    ViewModel() {
+class AddPlanViewModel(private val pref: UserPreference) : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _recipe = MutableLiveData<Recipe?>()
-    val recipe: LiveData<Recipe?> = _recipe
-
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
+
+    private lateinit var token: String
 
     init {
         viewModelScope.launch {
             pref.token.onEach {
                 if (it.isNotEmpty()) {
-                    getRecipe(it, mealName)
+                    token = it
                 }
             }.collect()
         }
     }
 
-    private fun getRecipe(token: String, mealName: String) {
+    fun addMealPlan(mealName: String, date: String, groupMeal: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService(token).getRecipe(mealName)
-        client.enqueue(object : Callback<RecipeResponse> {
+        val client =
+            ApiConfig.getApiService(token).postMealPlan(MealPlanRequest(date, mealName, groupMeal))
+        client.enqueue(object : Callback<MealPlanPostResponse> {
             override fun onResponse(
-                call: Call<RecipeResponse>,
-                response: Response<RecipeResponse>
+                call: Call<MealPlanPostResponse>,
+                response: Response<MealPlanPostResponse>
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    _recipe.value = response.body()?.recipe
+                    _message.value = "Tersimpan"
                 } else {
                     _message.value = response.message()
                 }
             }
 
-            override fun onFailure(call: Call<RecipeResponse>, t: Throwable) {
+            override fun onFailure(call: Call<MealPlanPostResponse>, t: Throwable) {
                 _isLoading.value = false
                 _message.value = t.message
             }

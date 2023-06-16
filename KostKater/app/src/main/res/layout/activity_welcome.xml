@@ -9,46 +9,46 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.2"
         android:background="@color/black"
-        android:elevation="1dp"
-        android:alpha="0.2" />
+        android:elevation="1dp" />
 
     <ImageView
         android:id="@+id/iv_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
+        android:scaleType="centerCrop"
         android:src="@drawable/food_background"
-        android:scaleType="centerCrop" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="70dp"
+        android:elevation="10dp"
         android:text="@string/app_name"
         android:textAllCaps="true"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:elevation="10dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:cardCornerRadius="25dp"
+        android:layout_margin="10dp"
         android:backgroundTint="@color/hunter_green"
-        android:layout_margin="10dp">
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -59,42 +59,42 @@
                 android:id="@+id/tv_slogan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/slogan"
+                android:textColor="@color/white"
                 android:textSize="36sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="@string/slogan" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/register_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
-                app:layout_constraintTop_toBottomOf="@id/tv_slogan"
-                android:backgroundTint="@color/black"
-                app:shapeAppearanceOverlay="@style/RoundedSquare"
-                android:paddingVertical="18dp"
                 android:layout_marginTop="34dp"
                 android:layout_marginRight="10dp"
-                android:text="@string/register" />
+                android:backgroundTint="@color/black"
+                android:paddingVertical="18dp"
+                android:text="@string/register"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_slogan"
+                app:shapeAppearanceOverlay="@style/RoundedSquare" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/guidelineVertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_slogan"
-                android:backgroundTint="@color/selective_yellow"
-                app:shapeAppearanceOverlay="@style/RoundedSquare"
-                android:paddingVertical="18dp"
-                android:layout_marginTop="34dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="34dp"
+                android:backgroundTint="@color/selective_yellow"
+                android:paddingVertical="18dp"
+                android:text="@string/login"
                 android:textColor="@color/black"
-                android:text="@string/login" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+                app:layout_constraintTop_toBottomOf="@id/tv_slogan"
+                app:shapeAppearanceOverlay="@style/RoundedSquare" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineVertical"
