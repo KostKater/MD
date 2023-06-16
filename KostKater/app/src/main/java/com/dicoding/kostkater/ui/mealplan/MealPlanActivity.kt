@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.kostkater.R
 import com.dicoding.kostkater.adapter.MealPlanAdapter
 import com.dicoding.kostkater.databinding.ActivityMealPlanBinding
 import com.dicoding.kostkater.model.UserPreference
@@ -44,6 +46,16 @@ class MealPlanActivity : AppCompatActivity() {
         mealPlanViewModel.mealPlan.observe(this) { mealPlan ->
             if (mealPlan != null) {
                 setMealPlan(mealPlan)
+            } else {
+                AlertDialog.Builder(this).apply {
+                    setMessage(getString(R.string.session))
+                    setPositiveButton(getString(R.string.next)) { _, _ ->
+                        mealPlanViewModel.logout()
+                        finish()
+                    }
+                    create()
+                    show()
+                }
             }
         }
 

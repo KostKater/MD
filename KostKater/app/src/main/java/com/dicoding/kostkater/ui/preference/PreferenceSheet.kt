@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
@@ -53,6 +54,16 @@ class PreferenceSheet(private val token: String) : BottomSheetDialogFragment() {
         preferenceViewModel.userPreference.observe(this) { userPreference ->
             if (userPreference != null) {
                 setPreferenceData(userPreference)
+            } else {
+                AlertDialog.Builder(requireContext()).apply {
+                    setMessage(getString(R.string.session))
+                    setPositiveButton(getString(R.string.next)) { _, _ ->
+                        preferenceViewModel.logout()
+                        activity?.finish()
+                    }
+                    create()
+                    show()
+                }
             }
         }
 

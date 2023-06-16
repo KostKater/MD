@@ -94,4 +94,10 @@ class PreferenceViewModel(private val pref: UserPreference) : ViewModel() {
             }
         })
     }
+
+    fun logout() {
+        viewModelScope.launch {
+            pref.saveToken("")
+        }
+    }
 }

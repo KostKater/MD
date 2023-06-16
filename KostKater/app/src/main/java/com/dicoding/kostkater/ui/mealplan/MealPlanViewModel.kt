@@ -57,4 +57,10 @@ class MealPlanViewModel(private val pref: UserPreference) : ViewModel() {
             }
         })
     }
+
+    fun logout() {
+        viewModelScope.launch {
+            pref.saveToken("")
+        }
+    }
 }
